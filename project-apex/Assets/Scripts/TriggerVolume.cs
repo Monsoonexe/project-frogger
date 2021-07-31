@@ -1,17 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Collider))]
 public class TriggerVolume : ApexMonoBehaviour
 {
     [SerializeField]
     [Tooltip("Empty means 'any'.")]
     protected string reactToTag = "Player";
-
-    /// <summary>
-    /// Running total of times this has been triggered.
-    /// </summary>
-    [Tooltip("Running total of times this has been triggered.")]
-    public int triggerCount = 0;
 
     [SerializeField]
     protected UnityEvent enterEvent = new UnityEvent();
@@ -22,7 +17,6 @@ public class TriggerVolume : ApexMonoBehaviour
     [ContextMenu("ForceCollide()")]
     public void ForceCollide()
     {
-        ++triggerCount;
         enterEvent.Invoke();
     }
 
@@ -31,7 +25,6 @@ public class TriggerVolume : ApexMonoBehaviour
         if (string.IsNullOrEmpty(reactToTag) 
             || col.gameObject.CompareTag(reactToTag))
         {
-            ++triggerCount;
             enterEvent.Invoke();
         }
     }
@@ -40,6 +33,24 @@ public class TriggerVolume : ApexMonoBehaviour
     {
         if (string.IsNullOrEmpty(reactToTag) 
             || col.gameObject.CompareTag(reactToTag))
+        {
+            exitEvent.Invoke();
+        }
+    }
+
+    protected void OnCollisionEnter(Collision collision)
+    {
+        if (string.IsNullOrEmpty(reactToTag)
+            || collision.gameObject.CompareTag(reactToTag))
+        {
+            enterEvent.Invoke();
+        }
+    }
+
+    protected void OnCollisionExit(Collision collision)
+    {
+        if (string.IsNullOrEmpty(reactToTag)
+            || collision.gameObject.CompareTag(reactToTag))
         {
             exitEvent.Invoke();
         }
