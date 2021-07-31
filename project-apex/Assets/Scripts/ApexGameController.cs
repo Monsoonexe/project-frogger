@@ -21,7 +21,7 @@ public class ApexGameController : MonoBehaviour
     /// <summary>
     /// Time.deltaTime that has been cached and un-marshalled.
     /// </summary>
-    public float DeltaTime { get; private set; }
+    public static float DeltaTime { get; private set; }
 
     private void Start()
     {
