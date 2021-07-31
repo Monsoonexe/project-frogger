@@ -31,12 +31,19 @@ public class PlayerInputController : ApexMobile
 
     private void Update()
     {
-        //get inputs
-        var playerInput = new Vector2
-        (
-            Input.GetAxis(horizontalAxisName),
-            Input.GetAxis(vertivalAxisName)
-        );
+        //snap inputs instead of damping
+        var hor = Input.GetAxis(horizontalAxisName);
+        if (hor > 0) hor = 1;
+        else if (hor < 0) hor = -1;
+
+        //snap inputs instead of damping
+        var vert = Input.GetAxis(vertivalAxisName);
+        if (vert > 0) vert = 1;
+        else if (vert < 0) vert = -1;
+
+        var playerInput = new Vector2(
+            hor, vert);
+        //Debug.Log(playerInput);
 
         characterController.Move(playerInput);
     }
