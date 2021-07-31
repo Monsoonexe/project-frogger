@@ -1,9 +1,11 @@
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-Assets/AssetStoreTools*
+project-apex/[Ll]ibrary/
+project-apex/[Tt]emp/
+project-apex/[Oo]bj/
+project-apex/[Bb]uild/
+project-apex/[Bb]uilds/
+project-apex/Assets/AssetStoreTools*
+project-apex/Assets/Plugins/
+project-apex/Assets/ThirdParty/
 
 # Visual Studio cache directory
 .vs/
@@ -35,3 +37,4 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+project-apex/Assets/Plugins.meta
