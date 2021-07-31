@@ -13,6 +13,14 @@ namespace RichPackage.Editor
             => EditorSceneManager.OpenScene(
                 SceneManager.GetActiveScene().name); //don't prompt to save
 
+        [MenuItem("Scenes/Dev - Skunkworks")]
+        public static void LoadSkunkworks()
+            => LoadScene("Assets/Scenes/Dev Scene.unity");
+
+        [MenuItem("Scenes/Levels/1")]
+        public static void LoadLevel_1()
+            => LoadScene("Assets/Scenes/Game Scenes/XXXX.unity");
+
         #endregion
 
         #region Internal Functions
