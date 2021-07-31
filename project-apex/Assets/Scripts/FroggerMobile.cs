@@ -5,11 +5,16 @@ public class FroggerMobile : ApexMobile
 {
     [Header("---Settings---")]
     [SerializeField]
-    private Vector2 stepAmount = new Vector2(1, 1);
+    private Vector3 stepAmount = new Vector3(5, 0, 5);
 
     [Header("---Animation Settings---")]
     [SerializeField]
     private float moveAnimTime = 0.85f;
+
+    [SerializeField]
+    [Tooltip("Controls are more responsive with a lower value, " +
+        "but tween end might be cut off.")]
+    private float responseModifier = 0.9f;
 
     [Header("---Prefab Refs---")]
     [SerializeField]
@@ -20,14 +25,14 @@ public class FroggerMobile : ApexMobile
 
     public bool IsMoving { get => moveTween != null; }
 
-    public void Move(Vector2 input)
+    public void Move(Vector3 input)
     {   //prevent spamming and moving too fast
         if (IsMoving    //don't animate to zero
             || (input.x == 0 && input.y == 0))
             return;
 
         //calculate target destination for lerp
-        var forwardMove = input.y * stepAmount.y;
+        var forwardMove = input.z * stepAmount.z;
 
         //prioritize forward movement over horizontal.
         var horizontalMove = (forwardMove == 0) 
@@ -42,13 +47,13 @@ public class FroggerMobile : ApexMobile
     private IEnumerator Tween_Lerp(Vector3 targetPoint, 
         float duration)
     {
-        var startTime = Time.time;
+        var startTime = ApexGameController.UpTime;
         var endTime = startTime + duration;
         var runtime = 0.0f;
 
         yield return null; //skip current frame
 
-        while (runtime < duration)
+        while (runtime < duration * responseModifier)
         {
             yield return null; //wait for next frame.
             

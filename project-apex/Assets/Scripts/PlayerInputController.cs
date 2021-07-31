@@ -32,17 +32,17 @@ public class PlayerInputController : ApexMobile
     private void Update()
     {
         //snap inputs instead of damping
-        var hor = Input.GetAxis(horizontalAxisName);
-        if (hor > 0) hor = 1;
-        else if (hor < 0) hor = -1;
+        var horInput = Input.GetAxis(horizontalAxisName);
+        if (horInput > 0) horInput = 1;
+        else if (horInput < 0) horInput = -1;
 
         //snap inputs instead of damping
-        var vert = Input.GetAxis(vertivalAxisName);
-        if (vert > 0) vert = 1;
-        else if (vert < 0) vert = -1;
+        var forwardInput = Input.GetAxis(vertivalAxisName);
+        if (forwardInput > 0) forwardInput = 1;
+        else if (forwardInput < 0) forwardInput = -1;
 
-        var playerInput = new Vector2(
-            hor, vert);
+        var playerInput = new Vector3(
+            horInput, 0, forwardInput);
         //Debug.Log(playerInput);
 
         characterController.Move(playerInput);
