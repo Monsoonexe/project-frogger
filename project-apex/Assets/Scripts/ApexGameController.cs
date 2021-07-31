@@ -28,6 +28,11 @@ public class ApexGameController : MonoBehaviour
     /// </summary>
     public static float UpTime { get; private set; }
 
+    private void Awake()
+    {
+        ApexTweens.Init();
+    }
+
     private void Start()
     {
         Application.targetFrameRate = targetFrameRate;
@@ -35,9 +40,11 @@ public class ApexGameController : MonoBehaviour
 
     private void Update()
     {
-        DeltaTime = Time.deltaTime;//cache
+        //cache time values to de-marshal them once
+        DeltaTime = Time.deltaTime;
+        UpTime = Time.time;
 
-        //handle input
+        //handle app-level input
         if (Input.GetButtonDown(quitButtonName))
             QuitGame();
         else if (Input.GetButtonDown(resetButtonName))
