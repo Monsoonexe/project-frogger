@@ -23,6 +23,11 @@ public class ApexGameController : MonoBehaviour
     /// </summary>
     public static float DeltaTime { get; private set; }
 
+    /// <summary>
+    /// Time.time that has been cached and un-marshalled.
+    /// </summary>
+    public static float UpTime { get; private set; }
+
     private void Start()
     {
         Application.targetFrameRate = targetFrameRate;
