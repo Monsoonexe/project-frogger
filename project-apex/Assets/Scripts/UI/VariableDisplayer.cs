@@ -40,6 +40,7 @@ public class VariableDisplayer : ApexMonoBehaviour
         targetData.onValueChangedEvent.RemoveListener(UpdateUI);
     }
 
+    [ContextMenu("UpdateUI()")]
     public virtual void UpdateUI()
     {
         textElement.text = targetData.ToString();
