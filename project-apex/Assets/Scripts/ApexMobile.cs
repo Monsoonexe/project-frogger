@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ApexMobile : MonoBehaviour
+public abstract class ApexMobile : ApexMonoBehaviour
 {
     /// <summary>
     /// Cache because '.transform' is secretly GetComponent().
