@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: S_Quit Name
   m_EditorClassIdentifier: 
   developerDescription: Game data.
-  _value: Quit
+  _value: Cancel
   _isReadonly: 1
   _initialize: 0
   _initialValue: 
