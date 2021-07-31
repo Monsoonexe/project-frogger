@@ -5,6 +5,7 @@
 /// </summary>
 public class SmoothFollow : ApexMonoBehaviour
 {
+    [Header("---Scene Refs---")]
     [SerializeField]
     private Transform followTarget;
     public Transform FollowTarget
@@ -21,6 +22,7 @@ public class SmoothFollow : ApexMonoBehaviour
         set => lookTarget = value;
     }
 
+    [Header("---Options---")]
     public Vector3 offset = new Vector3(0, -2, 8);
 
     public float Distance
