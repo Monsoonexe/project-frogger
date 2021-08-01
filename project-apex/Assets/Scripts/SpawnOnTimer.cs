@@ -26,7 +26,6 @@ public class SpawnOnTimer : ApexMonoBehaviour
     private Transform spawnPoint;
 
     private GameObjectPool hazardPool;
-    private float nextSpawnTime;
 
     private void Reset()
     {
@@ -42,11 +41,10 @@ public class SpawnOnTimer : ApexMonoBehaviour
     private void InitNextSpawn()
     {
         //randomly select the next time to spawn
-        nextSpawnTime = ApexGameController.UpTime
-            + randomTimeIntervalBounds.RandomRange();
+        var randomDelay = randomTimeIntervalBounds.RandomRange();
 
         //wait that much time, then call this method
-        ApexTweens.InvokeAfterDelay(SpawnNextHazard, nextSpawnTime);
+        ApexTweens.InvokeAfterDelay(SpawnNextHazard, randomDelay);
     }
 
     private void SpawnNextHazard()
@@ -56,7 +54,12 @@ public class SpawnOnTimer : ApexMonoBehaviour
             spawnPoint.position, Quaternion.identity);
 
         //pool is empty, consider raising limits
-        if (!newHazard) return;
+        if (!newHazard)
+        {
+            //try again later
+            InitNextSpawn();//chain forever
+            return;
+        }
 
         if(shouldOverrideDirection)
         {
