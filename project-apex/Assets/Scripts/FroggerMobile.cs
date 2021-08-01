@@ -16,9 +16,16 @@ public class FroggerMobile : ApexMobile
     [SerializeField]
     private Vector2 zBounds = new Vector2(-100, 100);
 
+    [SerializeField]
+    private LayerMask boundaryCheckMask;
+
     [Header("---Animation Settings---")]
     [SerializeField]
     private float moveAnimTime = 0.85f;
+
+    [Header("---Audio---")]
+    [SerializeField]
+    private AudioClip moveAudioClip;
 
     //[SerializeField]
     //[Tooltip("Controls are more responsive with a lower value, " +
@@ -50,11 +57,15 @@ public class FroggerMobile : ApexMobile
         var desiredDestination = new Vector3(horizontalMove, 0, forwardMove)
             + playerModelHandle.position;
 
+        //TODO instead use a raycast so can use complex colliders
+        //instead of custom math
+
         //if any of the values are outside of boundary, no movement at all
         if (xBounds.IsWithin(desiredDestination.x)
             && yBounds.IsWithin(desiredDestination.y)
             && zBounds.IsWithin(desiredDestination.z))
         {
+            moveAudioClip.Play();
             moveTween = playerModelHandle.Tween_Lerp(
                 desiredDestination, moveAnimTime,
                 onComplete: () => moveTween = null);//flag not in use
