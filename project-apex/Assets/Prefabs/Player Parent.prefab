@@ -292,10 +292,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: Please enter a description or a note.
   respawnResumeDelay: 1.5
-  deathInterval: 0.5
+  deathInterval: 1.5
+  deathReflectionInterval: 1
   playerDeathCounter: {fileID: 11400000, guid: f98212257f11beb4d94242ec0d6d08c0, type: 2}
   playerMobileHandle: {fileID: 5217025705745117940}
   playerInput: {fileID: 6643546896350378883}
+  playerCollider: {fileID: 9020440512778907917}
   respawnPoint: {fileID: 3746706738602093165}
 --- !u!114 &6643546896350378883
 MonoBehaviour:
