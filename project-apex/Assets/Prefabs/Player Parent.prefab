@@ -4999,6 +4999,7 @@ MonoBehaviour:
   playerCollider: {fileID: 9020440512778907917}
   playerHitEffect: {fileID: 3414377162532376887}
   respawnPoint: {fileID: 3746706738602093165}
+  onPlayerDie: {fileID: 8300000, guid: a10347f1c023fe840aeea5602eb4b635, type: 3}
 --- !u!114 &6643546896350378883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5039,7 +5040,11 @@ MonoBehaviour:
   xBounds: {x: -35, y: 35}
   yBounds: {x: 1.5, y: 1.5}
   zBounds: {x: -100, y: 100}
+  boundaryCheckMask:
+    serializedVersion: 2
+    m_Bits: 0
   moveAnimTime: 0.3
+  moveAudioClip: {fileID: 8300000, guid: e1f5226b7e0bd014db1f4456e1f63f1d, type: 3}
   playerModelHandle: {fileID: 5217025705745117940}
 --- !u!1 &6251193190670331304
 GameObject:

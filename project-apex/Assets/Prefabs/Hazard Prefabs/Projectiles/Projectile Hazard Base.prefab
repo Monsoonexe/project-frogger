@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: I kill the Player if I come in contact with them.
   moveSpeed: 20
+  onSpawnClip: {fileID: 8300000, guid: 7b01aee2d34f3a6478014810069e04e0, type: 3}
 --- !u!1 &7952569776950946454
 GameObject:
   m_ObjectHideFlags: 0
