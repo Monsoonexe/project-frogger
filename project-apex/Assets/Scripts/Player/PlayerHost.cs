@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Helps manage the Player.
@@ -11,12 +9,15 @@ public class PlayerHost : ApexMonoBehaviour
 
     [Header("---Settings---")]
     [SerializeField]
+    [Min(0)]
     [Tooltip("Time after respawn that player should be inactive.")]
     private float respawnResumeDelay = 1.5f;
 
     [SerializeField]
+    [Min(0)]
     private float deathInterval = 0.5f;
 
+    [Min(0)]
     public float deathReflectionInterval = 1.0f;
 
     [Header("---Resources---")]
@@ -40,6 +41,17 @@ public class PlayerHost : ApexMonoBehaviour
     private void Reset()
     {
         SetDevDescription("Helps manage the Player.");
+    }
+
+    private void OnValidate()
+    {
+        if(deathInterval < deathReflectionInterval)
+        {
+            //swap
+            var temp = deathInterval;
+            deathInterval = deathReflectionInterval;
+            deathReflectionInterval = temp;
+        }
     }
 
     private void Awake()
@@ -71,11 +83,30 @@ public class PlayerHost : ApexMonoBehaviour
         }
     }
 
+    /// <summary>
+    /// En/Disables Input and Collision.
+    /// </summary>
+    /// <param name="enabled"></param>
+    private void TogglePlayerEnabled(bool enabled)
+    {
+        playerInput.enabled = enabled;//cut player controls
+        playerCollider.enabled = enabled; //stop receiving collisions
+    }
+
+    /// <summary>
+    /// Flips enabled-ness.
+    /// </summary>
+    private void TogglePlayerEnabled()
+        => TogglePlayerEnabled(!playerInput.enabled);
+
     public void KillPlayer()
     {
-        playerInput.enabled = false;//cut player controls
         //TODO immediately play SFX and screen shake
-        ++playerDeathCounter.Value;
+
+        //disabled movement and such
+        TogglePlayerEnabled(enabled: false);
+
+        ++playerDeathCounter.Value;//updates ui value 
 
         //wait for a tad to let the loss sink in
         ApexTweens.InvokeAfterDelay(
@@ -98,6 +129,6 @@ public class PlayerHost : ApexMonoBehaviour
 
         //re-enable input after some time.
         ApexTweens.InvokeAfterDelay(
-            () => playerInput.enabled = true, respawnResumeDelay);
+            TogglePlayerEnabled, respawnResumeDelay);
     }
 }
