@@ -11,12 +11,6 @@ public class SpawnOnTimer : ApexMonoBehaviour
     private Vector2 randomTimeIntervalBounds = new Vector2(1.5f, 4.0f);
 
     [SerializeField]
-    private bool shouldOverrideDirection = true;
-
-    [SerializeField]
-    private Vector3 directionOverride = new Vector3(1, 0, 0);
-
-    [SerializeField]
     [Tooltip("-1 means immortal.")]
     [Min(-1)]
     private float hazardLifetime = 10.0f;
@@ -49,31 +43,16 @@ public class SpawnOnTimer : ApexMonoBehaviour
 
     private void SpawnNextHazard()
     {
+        InitNextSpawn();//chain forever
+
         //(instantiate)
         var newHazard = hazardPool.Depool(
-            spawnPoint.position, Quaternion.identity);
-
-        //pool is empty, consider raising limits
-        if (!newHazard)
-        {
-            //try again later
-            InitNextSpawn();//chain forever
-            return;
-        }
-
-        if(shouldOverrideDirection)
-        {
-            var hazard = newHazard.GetComponent<ProjectileHazard>();
-            if (hazard != null)
-                hazard.moveVector = directionOverride;
-        }
+            spawnPoint.position, spawnPoint.rotation);
 
         //reclaim after some time (unless immortal)
-        if(hazardLifetime > 0)
+        if (newHazard != null && hazardLifetime > 0)
             ApexTweens.InvokeAfterDelay(
                 () => hazardPool.Enpool(newHazard), hazardLifetime);
-
-        InitNextSpawn();//chain forever
     }
 
 }
