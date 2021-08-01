@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d1a60d8384f4e4480d90826868c3d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  developerDescription: Please enter a description or a note.
+  developerDescription: Helps manage the Player.
   respawnResumeDelay: 1.5
   deathInterval: 1.5
   deathReflectionInterval: 1
