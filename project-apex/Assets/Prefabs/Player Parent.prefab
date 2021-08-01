@@ -359,7 +359,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -911,7 +911,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 270, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 2, y: 2, z: 2}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -4997,7 +4997,7 @@ MonoBehaviour:
   playerMobileHandle: {fileID: 5217025705745117940}
   playerInput: {fileID: 6643546896350378883}
   playerCollider: {fileID: 9020440512778907917}
-  playerHitEffect: {fileID: 0}
+  playerHitEffect: {fileID: 3414377162532376887}
   respawnPoint: {fileID: 3746706738602093165}
 --- !u!114 &6643546896350378883
 MonoBehaviour:
@@ -5036,7 +5036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: Please enter a description or a note.
   stepAmount: {x: 5, y: 5, z: 5}
-  xBounds: {x: -50, y: 50}
+  xBounds: {x: -35, y: 35}
   yBounds: {x: 1.5, y: 1.5}
   zBounds: {x: -100, y: 100}
   moveAnimTime: 0.3

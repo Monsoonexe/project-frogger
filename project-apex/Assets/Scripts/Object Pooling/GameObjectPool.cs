@@ -86,21 +86,21 @@ public class GameObjectPool : ApexMonoBehaviour
 
     private GameObject CreatePoolable()
     {
+        GameObject newGameObject = null;//return value
         if (maxAmount >= 0 && PopulationCount >= maxAmount)
         {
             Debug.Log("[" + name + "] Pool is exhausted. "
                 + "Count: " + ConstStrings.GetCachedString(maxAmount)
                 + ". Consider increasing 'maxAmount' or setting 'createWhenEmpty'."
                 , this);
-
-            return null; //at max capacity
+        }
+        else
+        {
+            newGameObject = Instantiate(objectPrefab, poolParent);
+            manifest.Add(newGameObject);//track
         }
 
-        var newGameObj = Instantiate(objectPrefab, poolParent);
-
-        manifest.Add(newGameObj);//track
-
-        return newGameObj;
+        return newGameObject;
     }
 
     public void AddItems(int amount = 1)
