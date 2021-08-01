@@ -1,11 +1,20 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class FroggerMobile : ApexMobile
 {
     [Header("---Settings---")]
     [SerializeField]
     private Vector3 stepAmount = new Vector3(5, 0, 5);
+
+    [Header("---Bounds Settings---")]
+    [SerializeField]
+    private Vector2 xBounds = new Vector2(-50, 50);
+
+    [SerializeField]
+    private Vector2 yBounds = new Vector2(1.5f, 1.5f);
+
+    [SerializeField]
+    private Vector2 zBounds = new Vector2(-100, 100);
 
     [Header("---Animation Settings---")]
     [SerializeField]
@@ -38,12 +47,29 @@ public class FroggerMobile : ApexMobile
         var horizontalMove = (forwardMove == 0) 
             ? input.x * stepAmount.x : 0;
 
-        var destination = new Vector3(horizontalMove, 0, forwardMove)
+        var desiredDestination = new Vector3(horizontalMove, 0, forwardMove)
             + playerModelHandle.position;
-        
-        moveTween = playerModelHandle.Tween_Lerp(
-            destination, moveAnimTime, 
-            onComplete: () => moveTween = null);//flag not in use
+
+        //if any of the values are outside of boundary, no movement at all
+        if (xBounds.IsWithin(desiredDestination.x)
+            && yBounds.IsWithin(desiredDestination.y)
+            && zBounds.IsWithin(desiredDestination.z))
+        {
+            moveTween = playerModelHandle.Tween_Lerp(
+                desiredDestination, moveAnimTime,
+                onComplete: () => moveTween = null);//flag not in use
+        }
     }
 
+    /// <summary>
+    /// Returns true if x is in inverval [min, max].
+    /// </summary>
+    public static bool IsWithin(int x, int min, int max)
+        => (x >= min && x <= max);
+
+    /// <summary>
+    /// Returns true if x is in inverval [min, max].
+    /// </summary>
+    public static bool IsWithin(float x, float min, float max)
+        => (x >= min && x <= max);
 }
