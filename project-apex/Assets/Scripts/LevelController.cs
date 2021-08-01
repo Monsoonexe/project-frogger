@@ -23,4 +23,13 @@ public class LevelController : ApexMonoBehaviour
     {
         SceneManager.LoadScene(nextLevelIndex);
     }
+
+    public void LoadLevel(int buildIndex)
+    {
+        SceneManager.LoadScene(buildIndex);
+    }
+
+    public void LoadFirstLevel() => LoadLevel(1);
+
+    public void LoadMainMenu() => LoadLevel(0);
 }
