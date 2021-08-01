@@ -41,6 +41,10 @@ public class PlayerHost : ApexMonoBehaviour
     [SerializeField]
     private Transform respawnPoint;
 
+    [Header("---Audio---")]
+    [SerializeField]
+    private AudioClip onPlayerDie;
+
     private void Reset()
     {
         SetDevDescription("Helps manage the Player.");
@@ -86,26 +90,12 @@ public class PlayerHost : ApexMonoBehaviour
         }
     }
 
-    /// <summary>
-    /// En/Disables Input and Collision.
-    /// </summary>
-    /// <param name="enabled"></param>
-    private void TogglePlayerEnabled(bool enabled)
-    {
-        playerInput.enabled = enabled;//cut player controls
-        playerCollider.enabled = enabled; //stop receiving collisions
-    }
-
-    /// <summary>
-    /// Flips enabled-ness.
-    /// </summary>
-    private void TogglePlayerEnabled()
-        => TogglePlayerEnabled(!playerInput.enabled);
-
     public void KillPlayer()
     {
         //TODO screen shake
         playerHitEffect.Play();
+
+        onPlayerDie.Play();
 
         //disabled movement and such
         TogglePlayerEnabled(enabled: false);
@@ -135,4 +125,20 @@ public class PlayerHost : ApexMonoBehaviour
         ApexTweens.InvokeAfterDelay(
             TogglePlayerEnabled, respawnResumeDelay);
     }
+
+    /// <summary>
+    /// En/Disables Input and Collision.
+    /// </summary>
+    /// <param name="enabled"></param>
+    public void TogglePlayerEnabled(bool enabled)
+    {
+        playerInput.enabled = enabled;//cut player controls
+        playerCollider.enabled = enabled; //stop receiving collisions
+    }
+
+    /// <summary>
+    /// Flips enabled-ness.
+    /// </summary>
+    public void TogglePlayerEnabled()
+        => TogglePlayerEnabled(!playerInput.enabled);
 }
