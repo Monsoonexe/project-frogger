@@ -18,6 +18,10 @@ public class ApexGameController : MonoBehaviour
     [SerializeField]
     private StringVariable resetButtonName;
 
+    [Header("---Resources---")]
+    [SerializeField]
+    private IntVariable gameWinsCount;
+
     /// <summary>
     /// Time.deltaTime that has been cached and un-marshalled.
     /// </summary>
@@ -36,6 +40,10 @@ public class ApexGameController : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = targetFrameRate;
+
+        //load data
+        if (PlayerPrefs.HasKey(gameWinsCount.name))
+            gameWinsCount.Value = PlayerPrefs.GetInt(gameWinsCount.name);
     }
 
     private void Update()
@@ -53,6 +61,7 @@ public class ApexGameController : MonoBehaviour
 
     private void QuitGame()
     {
+        PlayerPrefs.SetInt(gameWinsCount.name, gameWinsCount.Value);
         Application.Quit();
     }
 
@@ -60,4 +69,7 @@ public class ApexGameController : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    [ContextMenu("Delete PlayerPrefs Keys")]
+    public void ClearSaveFile() => PlayerPrefs.DeleteAll();
 }
