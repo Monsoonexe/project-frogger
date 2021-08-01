@@ -159,7 +159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3412315004315655393}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1543973377370444307}
@@ -252,6 +252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1720543993279962246}
+  - component: {fileID: 4761826576940142299}
   - component: {fileID: 6643546896350378883}
   - component: {fileID: 1630979421120040730}
   m_Layer: 0
@@ -273,9 +274,29 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5217025705745117940}
+  - {fileID: 3746706738602093165}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4761826576940142299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4152558477211519416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d1a60d8384f4e4480d90826868c3d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  developerDescription: Please enter a description or a note.
+  respawnResumeDelay: 1.5
+  deathInterval: 0.5
+  playerDeathCounter: {fileID: 11400000, guid: f98212257f11beb4d94242ec0d6d08c0, type: 2}
+  playerMobileHandle: {fileID: 5217025705745117940}
+  playerInput: {fileID: 6643546896350378883}
+  respawnPoint: {fileID: 3746706738602093165}
 --- !u!114 &6643546896350378883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c342752cc5c16204d844443b11fd0d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  developerDescription: Please enter a description or a note.
   gravityVector: {x: 0, y: -9.81, z: 0}
   groundCheckRadius: 0.5
   groundLayerMask:
@@ -310,10 +332,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2875d798d3928d84497bbcb0d6e7715c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepAmount: {x: 5, y: 5}
+  developerDescription: Please enter a description or a note.
+  stepAmount: {x: 5, y: 5, z: 5}
   moveAnimTime: 0.3
-  responseModifier: 0.5
   playerModelHandle: {fileID: 5217025705745117940}
+--- !u!1 &6251193190670331304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3746706738602093165}
+  m_Layer: 0
+  m_Name: Respawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3746706738602093165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6251193190670331304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1720543993279962246}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8778761645430630906
 GameObject:
   m_ObjectHideFlags: 0
