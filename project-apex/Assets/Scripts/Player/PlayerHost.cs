@@ -17,6 +17,8 @@ public class PlayerHost : ApexMonoBehaviour
     [SerializeField]
     private float deathInterval = 0.5f;
 
+    public float deathReflectionInterval = 1.0f;
+
     [Header("---Resources---")]
     [SerializeField]
     private IntVariable playerDeathCounter;
@@ -27,6 +29,9 @@ public class PlayerHost : ApexMonoBehaviour
 
     [SerializeField]
     private PlayerInputController playerInput;
+
+    [SerializeField]
+    private Collider playerCollider;
 
     [Header("---Scene Refs---")]
     [SerializeField]
@@ -39,6 +44,22 @@ public class PlayerHost : ApexMonoBehaviour
 
     private void Awake()
     {
+        Debug.Assert(playerCollider != null,
+            "[" + GetType().Name + "] " +
+            "collider is null and should be set by developer.");
+
+        Debug.Assert(playerInput != null,
+            "[" + GetType().Name + "] " +
+            "player input is null and should be set by developer.");
+
+        Debug.Assert(playerMobileHandle != null,
+            "[" + GetType().Name + "] " +
+            "playerMobileHandle is null and should be set by developer.");
+
+        Debug.Assert(playerDeathCounter != null,
+            "[" + GetType().Name + "] " +
+            "death Rariable is null and should be set by developer.");
+
         //easy singleton
         if (!Instance)
         {
@@ -55,12 +76,25 @@ public class PlayerHost : ApexMonoBehaviour
         playerInput.enabled = false;//cut player controls
         //TODO immediately play SFX and screen shake
         ++playerDeathCounter.Value;
+
+        //wait for a tad to let the loss sink in
+        ApexTweens.InvokeAfterDelay(
+            //screen animtion to block out teleort
+            () => ScreenTransitionUI.TriggerRandomTransitionEvent(
+                ScreenTransitionUI.ETransitionType.OUT),
+            deathReflectionInterval); //wait for a tad to let the loss sink in
+
+        //respawn player
         ApexTweens.InvokeAfterDelay(RespawnPlayer, deathInterval);
     }
 
     public void RespawnPlayer()
     {
         playerMobileHandle.position = respawnPoint.position;
+
+        //remove screen animtion to block out teleort
+        ScreenTransitionUI.TriggerRandomTransitionEvent(
+                ScreenTransitionUI.ETransitionType.IN);
 
         //re-enable input after some time.
         ApexTweens.InvokeAfterDelay(
