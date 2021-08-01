@@ -32,12 +32,12 @@ public class VariableDisplayer : ApexMonoBehaviour
 
     protected virtual void SubscribeToEvents()
     {
-        targetData.onValueChangedEvent.AddListener(UpdateUI);
+        targetData.onValueChanged += UpdateUI;
     }
 
     protected virtual void UnsubscribeFromEvents()
     {
-        targetData.onValueChangedEvent.RemoveListener(UpdateUI);
+        targetData.onValueChanged -= UpdateUI;
     }
 
     [ContextMenu("UpdateUI()")]

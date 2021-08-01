@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 /// <summary>
 /// Static, project-level game data.
@@ -13,8 +12,10 @@ public abstract class AVariable : ApexScriptableObject
     /// <summary>
     /// Raised when the value has been updated.
     /// </summary>
-    public readonly UnityEvent onValueChangedEvent
-        = new UnityEvent(); //Unity events can be raised from derived class, unlike C# events
+    public event Action onValueChanged;
+
+    public virtual void Raise()
+        => onValueChanged?.Invoke();
 
     protected virtual void Reset()
     {
@@ -27,14 +28,6 @@ public abstract class AVariable : ApexScriptableObject
 /// </summary>
 public abstract class AVariable<T> : AVariable
 {
-    /// <summary>
-    /// Explicitly-typed event.
-    /// </summary>
-    public class TypedEvent : UnityEvent<T>
-    {
-        //exists
-    }
-
     [SerializeField]
     protected T _value = default;
 
@@ -52,8 +45,7 @@ public abstract class AVariable<T> : AVariable
     /// <summary>
     /// Raised when the value has been updated.
     /// </summary>
-    public readonly TypedEvent onValueChangedTypedEvent
-        = new TypedEvent();
+    public event Action<T> onValueChangedTyped;
 
     public T Value
     {
@@ -65,6 +57,12 @@ public abstract class AVariable<T> : AVariable
     {
         if (!_isReadonly && _initialize)
             _value = _initialValue;
+    }
+
+    public override void Raise()
+    {
+        base.Raise();
+        onValueChangedTyped?.Invoke(_value);
     }
 
     /// <summary>
@@ -82,8 +80,7 @@ public abstract class AVariable<T> : AVariable
         }
 
         _value = newValue;
-        onValueChangedEvent.Invoke();
-        onValueChangedTypedEvent.Invoke(_value);
+        Raise();
     }
 
     public static implicit operator T (AVariable<T> a)
