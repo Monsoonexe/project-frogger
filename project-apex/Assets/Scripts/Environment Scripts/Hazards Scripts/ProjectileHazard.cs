@@ -11,6 +11,10 @@ public class ProjectileHazard : ApexMobile
     [SerializeField]
     private float moveSpeed = 5;
 
+    [Header("---Audio---")]
+    [SerializeField]
+    private AudioClip onSpawnClip;
+
     protected override void Awake()
     {
         base.Awake();
@@ -21,6 +25,11 @@ public class ProjectileHazard : ApexMobile
     public void OnCollideWithPlayer()
     {
         playerHost.KillPlayer();
+    }
+
+    private void OnEnable()
+    {
+        onSpawnClip.Play();//bang!
     }
 
     private void Update()
