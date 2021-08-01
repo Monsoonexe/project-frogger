@@ -34,6 +34,9 @@ public class PlayerHost : ApexMonoBehaviour
     [SerializeField]
     private Collider playerCollider;
 
+    [SerializeField]
+    private ParticleSystem playerHitEffect;
+
     [Header("---Scene Refs---")]
     [SerializeField]
     private Transform respawnPoint;
@@ -101,7 +104,8 @@ public class PlayerHost : ApexMonoBehaviour
 
     public void KillPlayer()
     {
-        //TODO immediately play SFX and screen shake
+        //TODO screen shake
+        playerHitEffect.Play();
 
         //disabled movement and such
         TogglePlayerEnabled(enabled: false);
