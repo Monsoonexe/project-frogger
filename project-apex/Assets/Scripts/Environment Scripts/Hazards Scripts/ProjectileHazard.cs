@@ -8,8 +8,6 @@ public class ProjectileHazard : ApexMobile
     private static PlayerHost playerHost;
 
     [Header("---Settings---")]
-    public Vector3 moveVector = new Vector3(1, 0 , 0);
-
     [SerializeField]
     private float moveSpeed = 5;
 
@@ -27,9 +25,9 @@ public class ProjectileHazard : ApexMobile
 
     private void Update()
     {
-        var moveStep = moveVector 
+        var moveStep = myTransform.forward 
             * (moveSpeed * ApexGameController.DeltaTime);
 
-        myTransform.Translate(moveStep);
+        myTransform.position += moveStep;
     }
 }
