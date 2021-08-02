@@ -5,31 +5,13 @@
 /// </summary>
 public class ProjectileHazard : ApexMobile
 {
-    private static PlayerHost playerHost;
-
     [Header("---Settings---")]
     [SerializeField]
     private float moveSpeed = 5;
 
-    [Header("---Audio---")]
-    [SerializeField]
-    private AudioClip onSpawnClip;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        if (!playerHost)
-            playerHost = PlayerHost.Instance;
-    }
-
     public void OnCollideWithPlayer()
     {
-        playerHost.KillPlayer();
-    }
-
-    private void OnEnable()
-    {
-        onSpawnClip.Play();//bang!
+        PlayerHost.Instance.KillPlayer();
     }
 
     private void Update()
