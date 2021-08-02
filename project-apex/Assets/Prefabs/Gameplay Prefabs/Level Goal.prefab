@@ -135,7 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6370c9c766ef7240b2642f8f89a29eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  developerDescription: Please enter a description or a note.
+  developerDescription: The level is won when the Player enters my volume.Anything
+    else that should happen immediately upon victory can be rigged to TriggerVolume
+    event.
   celebrationTimeInterval: 5
   levelController: {fileID: 0}
   reachGoalClip: {fileID: 0}
@@ -229,12 +231,12 @@ PrefabInstance:
     - target: {fileID: 8680541904956599847, guid: c095671fa3ebb92458812de40b6ab1ec,
         type: 3}
       propertyPath: enterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TogglePlayerEnabled
+      value: OnPlayerReachGoal
       objectReference: {fileID: 0}
     - target: {fileID: 8680541904956599847, guid: c095671fa3ebb92458812de40b6ab1ec,
         type: 3}
       propertyPath: enterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8680541904956599847, guid: c095671fa3ebb92458812de40b6ab1ec,
         type: 3}
@@ -246,6 +248,11 @@ PrefabInstance:
       propertyPath: enterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8680541904956599847, guid: c095671fa3ebb92458812de40b6ab1ec,
+        type: 3}
+      propertyPath: enterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4779115812860221183}
     - target: {fileID: 8680541904956599840, guid: c095671fa3ebb92458812de40b6ab1ec,
         type: 3}
       propertyPath: m_Mesh
