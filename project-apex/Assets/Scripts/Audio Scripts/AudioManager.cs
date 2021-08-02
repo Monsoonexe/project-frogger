@@ -19,15 +19,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioSource[] sources;
 
-    private void Awake()
-    {
-        //init singleton
-        if (!_instance)
-            _instance = this;
-        else
-            Debug.LogWarning("Singleton Error!", this);
-    }
-
     public void Play(AudioClip clip)
     {
         if (clip == null) return; // early exit
@@ -43,12 +34,21 @@ public class AudioManager : MonoBehaviour
             }
     }
 
+    public static void Init()
+    {
+        var inSceneInstance = FindObjectOfType<AudioManager>();
+        if (!inSceneInstance)
+            CreateInstance();
+    }
+
     private static void CreateInstance()
     {
-        var gameObject = Resources.Load(AUDIO_MANAGER_NAME) as GameObject;
-        if (gameObject)
+        var prefab = Resources.Load(AUDIO_MANAGER_NAME) as GameObject;
+
+        if (prefab)
         {
-            var _instance = gameObject.GetComponent<AudioManager>();
+            var objInstance = Instantiate(prefab);
+            _instance = objInstance.GetComponent<AudioManager>();
             if (_instance == null)
             {
                 //TODO - complain
