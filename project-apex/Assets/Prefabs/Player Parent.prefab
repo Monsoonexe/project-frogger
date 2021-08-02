@@ -42,7 +42,7 @@ Camera:
   m_GameObject: {fileID: 534669902}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
@@ -125,7 +125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930483824543439938}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.9, z: 0}
+  m_LocalPosition: {x: 0, y: -0.757, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5217025705745117940}
@@ -244,11 +244,15 @@ MonoBehaviour:
   developerDescription: 'I''m used to detect ground Hazards.
 
     I raise an event on a successful raycast hit!'
+  detectOnRepeat: 0
   raycastPollInterval: 0.2
   detectDistance: 0.5
   raycastLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4609
+  detectLayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
   detectTriggers: 2
   detectVector: {x: 0, y: -1, z: 0}
   raycastOriginPoint: {fileID: 1543973377370444307}
@@ -5086,6 +5090,7 @@ MonoBehaviour:
   moveAnimTime: 0.28
   moveAudioClip: {fileID: 8300000, guid: e1f5226b7e0bd014db1f4456e1f63f1d, type: 3}
   playerModelHandle: {fileID: 5217025705745117940}
+  groundHazardDetector: {fileID: 6263096505260376094}
 --- !u!1 &6251193190670331304
 GameObject:
   m_ObjectHideFlags: 0
