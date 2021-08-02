@@ -31,6 +31,8 @@ public class ApexGameController : MonoBehaviour
     /// Time.time that has been cached and un-marshalled.
     /// </summary>
     public static float UpTime { get; private set; }
+    
+    public static float FixedDeltaTime { get; private set; }
 
     private void Awake()
     {
@@ -57,6 +59,12 @@ public class ApexGameController : MonoBehaviour
             QuitGame();
         else if (Input.GetButtonDown(resetButtonName))
             ResetGame();
+    }
+
+    private void FixedUpdate()
+    {
+        //cache time values to de-marshal them once
+        FixedDeltaTime = Time.fixedDeltaTime;
     }
 
     private void QuitGame()
