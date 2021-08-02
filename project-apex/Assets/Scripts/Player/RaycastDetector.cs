@@ -6,6 +6,20 @@ public class RaycastDetector : ApexMonoBehaviour
 {
     [Header("---Settings---")]
     [SerializeField]
+    private bool detectOnRepeat = false;
+    public bool DetectOnRepeat
+    {
+        get => detectOnRepeat;
+        set
+        {
+            //if was off and now on
+            if (value == true && detectOnRepeat == false)
+                StartCoroutine(RaycastRoutine());
+            detectOnRepeat = value;
+        }
+    }
+
+    [SerializeField]
     [Tooltip("Note: modifying during playmode has no effect.")]
     private float raycastPollInterval = 0.2f;
 
@@ -13,8 +27,19 @@ public class RaycastDetector : ApexMonoBehaviour
     [Min(0)]
     private float detectDistance = 0.5f;
 
+    /// <summary>
+    /// What should this raycast collide with?
+    /// </summary>
     [SerializeField]
+    [Tooltip("What should this raycast collide with?")]
     private LayerMask raycastLayerMask = -1;//everything
+
+    /// <summary>
+    /// Which layer is being detected? Facilitates querrying multiple layers.
+    /// </summary>
+    [SerializeField]
+    [Tooltip("Which layer is being detected? Facilitates querrying multiple layers.")]
+    private LayerMask detectLayerMask = 4096; //hazard = 12
 
     [SerializeField]
     private QueryTriggerInteraction detectTriggers
@@ -47,7 +72,8 @@ public class RaycastDetector : ApexMonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(RaycastRoutine());
+        if(detectOnRepeat)
+            StartCoroutine(RaycastRoutine());
     }
 
     private void OnDisable()
@@ -55,17 +81,32 @@ public class RaycastDetector : ApexMonoBehaviour
         StopAllCoroutines();
     }
 
-    private void HandleRayDetection()
+    /// <summary>
+    /// Raise an event when something is hit and is on given layer mask.
+    /// </summary>
+    public void HandleRayDetection()
     {
         //grounded if hit something on ground layer
-        var detectedHazard = Physics.Raycast(
+        bool rayHitSomething = Physics.Raycast(
             raycastOriginPoint.position, detectVector,
             out RaycastHit hitInfo,
             detectDistance, raycastLayerMask,
             detectTriggers);
 
-        if (detectedHazard)
-            onDetected.Invoke();
+        if (rayHitSomething)
+        {
+            //layer returns 0-31, we need a LayerMask, not a bit number
+            int hitLayerBitNumber = hitInfo.collider.gameObject.layer;
+            LayerMask hitLayer = (1 << hitLayerBitNumber);//int 2 mask
+            //bitshifting has same behaviour as code below:
+            //(int)Mathf.Pow(2, hitLayerBitNumber);//int 2 mask
+            uint maskResult = (uint)(detectLayerMask & hitLayer);
+            //check if that something is on the hazard layer
+            if (maskResult > 0)
+            {
+                onDetected.Invoke();
+            }
+        }
     }
 
     private IEnumerator RaycastRoutine()
