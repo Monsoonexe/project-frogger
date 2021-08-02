@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
             if (!sources[i].isPlaying)
             {
                 sources[i].PlayOneShot(clip);
-                Debug.Log("playing from source: " + i);
+                //Debug.Log("playing from source: " + i);
                 break;
             }
     }
