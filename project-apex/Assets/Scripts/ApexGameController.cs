@@ -36,7 +36,9 @@ public class ApexGameController : MonoBehaviour
 
     private void Awake()
     {
+        //initialize systems.
         ApexTweens.Init();
+        AudioManager.Init();
     }
 
     private void Start()
