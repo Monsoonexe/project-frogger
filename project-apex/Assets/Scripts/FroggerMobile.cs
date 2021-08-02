@@ -36,13 +36,22 @@ public class FroggerMobile : ApexMobile
     [SerializeField]
     private Transform playerModelHandle;
 
+    //[SerializeField]
+    //private Gravity gravityBehaviour;
+
     //runtime data
     private Coroutine moveTween;
+
+    private void Reset()
+    {
+        SetDevDescription("The bit that actually moves around the world.");
+        //gravityBehaviour = GetComponentInChildren<Gravity>();
+    }
 
     public bool IsMoving { get => moveTween != null; }
 
     public void Move(Vector3 input)
-    {   //prevent spamming and moving too fast
+    {   //prevent spamming and moving too frequently
         if (IsMoving    //don't animate to zero
             || (input.x == 0 && input.z == 0))
             return;
@@ -60,15 +69,24 @@ public class FroggerMobile : ApexMobile
         //TODO instead use a raycast so can use complex colliders
         //instead of custom math
 
+        //local function to handle end-of-animation stuff
+        void OnMoveComplete()
+        {
+            moveTween = null; //flag not in use
+            //gravityBehaviour.enabled = true;
+        }
+
         //if any of the values are outside of boundary, no movement at all
         if (xBounds.IsWithin(desiredDestination.x)
             && yBounds.IsWithin(desiredDestination.y)
             && zBounds.IsWithin(desiredDestination.z))
         {
+            //disable gravity during movement.
+            //gravityBehaviour.enabled = false;
             moveAudioClip.Play();
             moveTween = playerModelHandle.Tween_Lerp(
                 desiredDestination, moveAnimTime,
-                onComplete: () => moveTween = null);//flag not in use
+                onComplete: OnMoveComplete);
         }
     }
 
