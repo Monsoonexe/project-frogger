@@ -28,6 +28,8 @@ public class LevelGoal : ApexMonoBehaviour
         SetDevDescription("The level is won when the Player enters my volume." +
             "Anything else that should happen immediately upon victory can be " +
             "rigged to TriggerVolume event.");
+
+        levelController = FindObjectOfType<LevelController>();
     }
 
     public void OnPlayerReachGoal()
