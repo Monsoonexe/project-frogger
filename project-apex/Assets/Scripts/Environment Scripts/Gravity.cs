@@ -11,7 +11,7 @@ public class Gravity : ApexMobile
 
     [Header("---Ground Detection Settings---")]
     [SerializeField]
-    [Min(0)]
+    [Min(0.2f)]
     private float groundDetectDistance = 0.5f;
 
     [SerializeField]
