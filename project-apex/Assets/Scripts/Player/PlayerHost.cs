@@ -45,6 +45,9 @@ public class PlayerHost : ApexMonoBehaviour
     [SerializeField]
     private AudioClip onPlayerDie;
 
+    //runtime data
+    public bool IsDead { get; private set; }
+
     private void Reset()
     {
         SetDevDescription("Helps manage the Player.");
@@ -92,6 +95,11 @@ public class PlayerHost : ApexMonoBehaviour
 
     public void KillPlayer()
     {
+        //prevent spamming
+        if (IsDead) return;
+
+        IsDead = true;
+
         //TODO screen shake
         playerHitEffect.Play();
 
@@ -123,7 +131,13 @@ public class PlayerHost : ApexMonoBehaviour
 
         //re-enable input after some time.
         ApexTweens.InvokeAfterDelay(
-            TogglePlayerEnabled, respawnResumeDelay);
+            ConfigurePlayerAlive, respawnResumeDelay);
+    }
+
+    public void ConfigurePlayerAlive()
+    {
+        IsDead = false;
+        TogglePlayerEnabled(true);
     }
 
     /// <summary>
