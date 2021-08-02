@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
   - component: {fileID: 534669906}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -110,10 +110,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1543973377370444307}
-  m_Layer: 0
-  m_Name: Ground Check Point
+  m_Layer: 10
+  m_Name: Ground Hazard Check Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -125,7 +125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930483824543439938}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.901, z: 0}
+  m_LocalPosition: {x: 0, y: -0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5217025705745117940}
@@ -143,8 +143,9 @@ GameObject:
   - component: {fileID: 9184477727588451727}
   - component: {fileID: 879967533305005551}
   - component: {fileID: 9020440512778907917}
-  - component: {fileID: 2241808311537554489}
-  m_Layer: 0
+  - component: {fileID: 6263096505260376094}
+  - component: {fileID: 2462290176661556897}
+  m_Layer: 10
   m_Name: Player Model
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -194,7 +195,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d4aec3a105ce0bd4e8025ebc27da4e1a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -228,7 +229,46 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &2241808311537554489
+--- !u!114 &6263096505260376094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3412315004315655393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dbc5d2b19328374587e3d7b9fd9c7e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  developerDescription: 'I''m used to detect ground Hazards.
+
+    I raise an event on a successful raycast hit!'
+  raycastPollInterval: 0.2
+  detectDistance: 0.5
+  raycastLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  detectTriggers: 2
+  detectVector: {x: 0, y: -1, z: 0}
+  raycastOriginPoint: {fileID: 1543973377370444307}
+  onDetected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4761826576940142299}
+        m_MethodName: KillPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!54 &2462290176661556897
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,7 +295,7 @@ GameObject:
   - component: {fileID: 3528160456008267565}
   - component: {fileID: 3414377162532376887}
   - component: {fileID: 7591117162856499278}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Damage Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4954,7 +4994,7 @@ GameObject:
   - component: {fileID: 4761826576940142299}
   - component: {fileID: 6643546896350378883}
   - component: {fileID: 1630979421120040730}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5038,12 +5078,12 @@ MonoBehaviour:
   developerDescription: Please enter a description or a note.
   stepAmount: {x: 5, y: 5, z: 5}
   xBounds: {x: -35, y: 35}
-  yBounds: {x: 1.5, y: 1.5}
+  yBounds: {x: -10, y: 10}
   zBounds: {x: -100, y: 100}
   boundaryCheckMask:
     serializedVersion: 2
-    m_Bits: 0
-  moveAnimTime: 0.3
+    m_Bits: 4096
+  moveAnimTime: 0.28
   moveAudioClip: {fileID: 8300000, guid: e1f5226b7e0bd014db1f4456e1f63f1d, type: 3}
   playerModelHandle: {fileID: 5217025705745117940}
 --- !u!1 &6251193190670331304
@@ -5055,7 +5095,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3746706738602093165}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Respawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5085,7 +5125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4149382469221783939}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Camera Look
   m_TagString: Untagged
   m_Icon: {fileID: 0}
