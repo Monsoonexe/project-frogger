@@ -46,3 +46,4 @@ MonoBehaviour:
   targetFrameRate: {fileID: 11400000, guid: d9016919702e81a448233f43ac1b5ccd, type: 2}
   quitButtonName: {fileID: 11400000, guid: d38fd19ced6fb104591cf42064463296, type: 2}
   resetButtonName: {fileID: 11400000, guid: 2c1019ba62a2c1c47b8a4b895178581d, type: 2}
+  gameWinsCount: {fileID: 11400000, guid: 5fe157b3545f6c348ac4750d1ee06151, type: 2}
