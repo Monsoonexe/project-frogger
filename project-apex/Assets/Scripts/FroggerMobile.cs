@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Handles Frogger-like movement.
+/// </summary>
 public class FroggerMobile : ApexMobile
 {
     [Header("---Settings---")]

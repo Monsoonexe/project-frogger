@@ -26,7 +26,7 @@ public class MovingPlatformTile : ATile
 
     public override void OnExitTile()
     {
-        base.OnEnterTile();
+        base.OnExitTile();
         //restore parent
 
         PlayerHost.Instance.PlayerMobileHandle.SetParent(cachedParent);
