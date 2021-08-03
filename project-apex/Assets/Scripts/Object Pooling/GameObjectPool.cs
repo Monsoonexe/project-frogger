@@ -86,7 +86,8 @@ public class GameObjectPool : ApexMonoBehaviour
 
     protected void Awake()
     {
-        manifest = new List<GameObject>(maxAmount);
+        var poolSize = Mathf.Max(startingAmount, maxAmount);
+        manifest = new List<GameObject>(poolSize);
         if (initOnAwake)
             InitPool();
     }
