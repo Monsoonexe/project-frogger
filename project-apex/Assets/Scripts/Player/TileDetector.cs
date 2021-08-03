@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Handles interacting with tiles via raycast.
+/// </summary>
 public class TileDetector : ApexMonoBehaviour
 {
     [SerializeField]
@@ -7,6 +10,7 @@ public class TileDetector : ApexMonoBehaviour
 
     private void Reset()
     {
+        //SetDevDescription("Handles ")
         raycaster = GetComponent<RaycastDetector>();
     }
 

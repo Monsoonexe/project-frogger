@@ -35,12 +35,6 @@ public class RaycastDetector : ApexMonoBehaviour
     [Tooltip("What should this raycast collide with?")]
     public LayerMask raycastLayerMask = -1;//everything
 
-    /// <summary>
-    /// Which layer is being detected? Facilitates querrying multiple layers.
-    /// </summary>
-    [Tooltip("Which layer is being detected? Facilitates querrying multiple layers.")]
-    public LayerMask detectLayerMask = 4096; //hazard = 12
-
     public QueryTriggerInteraction detectTriggers
         = QueryTriggerInteraction.Ignore;
 
@@ -103,19 +97,7 @@ public class RaycastDetector : ApexMonoBehaviour
             detectTriggers);
 
         if (rayHitSomething)
-        {
-            //layer returns 0-31, we need a LayerMask, not a bit number
-            int hitLayerBitNumber = hitInfo.collider.gameObject.layer;
-            LayerMask hitLayer = (1 << hitLayerBitNumber);//int 2 mask
-            //bitshifting has same behaviour as code below:
-            //(int)Mathf.Pow(2, hitLayerBitNumber);//int 2 mask
-            uint maskResult = (uint)(detectLayerMask & hitLayer);
-            //check if that something is on the hazard layer
-            if (maskResult > 0)
-            {
-                OnHitDetected(hitInfo);
-            }
-        }
+            OnHitDetected(hitInfo);
     }
 
     protected IEnumerator RaycastRoutine()
