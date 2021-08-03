@@ -101,6 +101,9 @@ public class PlayerHost : ApexMonoBehaviour
         //prevent spamming
         if (IsDead) return;
 
+        //prevent respawning still moving with platform
+        ATile.CurrentTile = null; //ugly, but it has to be done.
+
         IsDead = true;
 
         //TODO screen shake
