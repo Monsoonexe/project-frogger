@@ -3,7 +3,7 @@
 [RequireComponent(typeof(Collider))]
 public abstract class ATile : ApexMonoBehaviour
 {
-    public static ATile CurrentTile { get; protected set; }
+    public static ATile CurrentTile { get; set; }
 
     public virtual void OnEnterTile()
     {
