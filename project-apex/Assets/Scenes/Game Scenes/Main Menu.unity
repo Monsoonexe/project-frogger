@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: Skip main menu until implemented.
   nextLevelIndex: 1
+  transitionDelay: 1
   levelTracker: {fileID: 11400000, guid: 4b935064d8a565748abaf4f008a97607, type: 2}
 --- !u!4 &1590022500
 Transform:
@@ -176,7 +177,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1590022499}
-        m_MethodName: LoadNextLevel
+        m_MethodName: LoadNextLevelImmediately
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
