@@ -48,8 +48,8 @@ MonoBehaviour:
     type: 3}
   initOnAwake: 1
   initStragety: 0
-  startingAmount: 3
-  maxAmount: 3
+  startingAmount: 6
+  maxAmount: 6
   poolParent: {fileID: 5879299264027635324}
 --- !u!1 &324638039008499111
 GameObject:
@@ -99,8 +99,8 @@ MonoBehaviour:
     type: 3}
   initOnAwake: 1
   initStragety: 0
-  startingAmount: 3
-  maxAmount: 3
+  startingAmount: 4
+  maxAmount: 4
   poolParent: {fileID: 2320727417747886825}
 --- !u!1 &1468509036915730784
 GameObject:
@@ -156,11 +156,15 @@ MonoBehaviour:
     randomTimeIntervalBounds: {x: 2, y: 3}
     spawnPoint: {fileID: 6320193039169140555}
     objectPool: {fileID: 2167840655405815714}
-  - hazardLifetime: 15
+  - hazardLifetime: 18
     randomTimeIntervalBounds: {x: 4, y: 5}
     spawnPoint: {fileID: 6320193039169140555}
     objectPool: {fileID: 7283687090778716345}
-  - hazardLifetime: 20
+  - hazardLifetime: 12
+    randomTimeIntervalBounds: {x: 2, y: 4}
+    spawnPoint: {fileID: 6320193039169140555}
+    objectPool: {fileID: 1917975395077451301}
+  - hazardLifetime: 12
     randomTimeIntervalBounds: {x: 2, y: 4}
     spawnPoint: {fileID: 6320193039169140555}
     objectPool: {fileID: 1917975395077451301}
@@ -212,8 +216,8 @@ MonoBehaviour:
     type: 3}
   initOnAwake: 1
   initStragety: 0
-  startingAmount: 3
-  maxAmount: 3
+  startingAmount: 4
+  maxAmount: 4
   poolParent: {fileID: 5818334755372940561}
 --- !u!1 &4712546712129261845
 GameObject:

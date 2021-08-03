@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: Please enter a description or a note.
   nextLevelIndex: 1
-  playerSpawnPoint: {fileID: 969785485656129669}
+  transitionDelay: 1
   levelTracker: {fileID: 11400000, guid: 4b935064d8a565748abaf4f008a97607, type: 2}
 --- !u!1 &4292796451530641487
 GameObject:
