@@ -77,6 +77,13 @@ public class GameObjectPool : ApexMonoBehaviour
     /// </summary>
     public int InUseCount { get => manifest.Count - pool.Count; }
 
+    private void Reset()
+    {
+        SetDevDescription("I replace Instantiate with a pool of objects. " +
+            "I'm doing my part to reduce garbage generation.");
+        poolParent = GetComponent<Transform>();
+    }
+
     protected void Awake()
     {
         manifest = new List<GameObject>(maxAmount);
