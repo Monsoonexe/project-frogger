@@ -1,12 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+
+public delegate void RaycastListener(in RaycastHit hitInfo);
 
 public class RaycastDetector : ApexMonoBehaviour
 {
     [Header("---Settings---")]
     [SerializeField]
-    private bool detectOnRepeat = false;
+    protected bool detectOnRepeat = false;
     public bool DetectOnRepeat
     {
         get => detectOnRepeat;
@@ -19,47 +22,45 @@ public class RaycastDetector : ApexMonoBehaviour
         }
     }
 
-    [SerializeField]
-    [Tooltip("Note: modifying during playmode has no effect.")]
-    private float raycastPollInterval = 0.2f;
-
-    [SerializeField]
     [Min(0)]
-    private float detectDistance = 0.5f;
+    [Tooltip("Note: modifying during playmode has no effect.")]
+    public float raycastPollInterval = 0.2f;
+
+    [Min(0)]
+    public float detectDistance = 0.5f;
 
     /// <summary>
     /// What should this raycast collide with?
     /// </summary>
-    [SerializeField]
     [Tooltip("What should this raycast collide with?")]
-    private LayerMask raycastLayerMask = -1;//everything
+    public LayerMask raycastLayerMask = -1;//everything
 
     /// <summary>
     /// Which layer is being detected? Facilitates querrying multiple layers.
     /// </summary>
-    [SerializeField]
     [Tooltip("Which layer is being detected? Facilitates querrying multiple layers.")]
-    private LayerMask detectLayerMask = 4096; //hazard = 12
+    public LayerMask detectLayerMask = 4096; //hazard = 12
 
-    [SerializeField]
-    private QueryTriggerInteraction detectTriggers
+    public QueryTriggerInteraction detectTriggers
         = QueryTriggerInteraction.Ignore;
 
-    [SerializeField]
-    private Vector3 detectVector = new Vector3(0, -1, 0);
+    public Vector3 detectVector = new Vector3(0, -1, 0);
 
     [Header("---Prefab Refs---")]
-    [SerializeField]
-    private Transform raycastOriginPoint;
+    public Transform raycastOriginPoint;
 
     [Header("---Events---")]
     [SerializeField]
-    private UnityEvent onDetected = new UnityEvent();
+    protected UnityEvent onDetected = new UnityEvent();
+
+    public UnityEvent OnDetected { get => onDetected; }
+
+    public event RaycastListener OnHitDetected;
 
     //runtime data
-    private YieldInstruction yieldInterval;
+    protected YieldInstruction yieldInterval;
 
-    private void Reset()
+    protected void Reset()
     {
         SetDevDescription("I raise an event on a successful raycast hit!");
         raycastOriginPoint = GetComponent<Transform>();
@@ -68,6 +69,7 @@ public class RaycastDetector : ApexMonoBehaviour
     private void Start()
     {
         yieldInterval = new WaitForSeconds(raycastPollInterval);
+        OnHitDetected += RaiseUnityEvent;//
     }
 
     private void OnEnable()
@@ -80,6 +82,13 @@ public class RaycastDetector : ApexMonoBehaviour
     {
         StopAllCoroutines();
     }
+
+    /// <summary>
+    /// Used to rig unity event to Action with arg so never null.
+    /// </summary>
+    /// <param name="disregardedValue"></param>
+    protected void RaiseUnityEvent(in RaycastHit disregardedValue)
+        => onDetected.Invoke();
 
     /// <summary>
     /// Raise an event when something is hit and is on given layer mask.
@@ -104,12 +113,12 @@ public class RaycastDetector : ApexMonoBehaviour
             //check if that something is on the hazard layer
             if (maskResult > 0)
             {
-                onDetected.Invoke();
+                OnHitDetected(hitInfo);
             }
         }
     }
 
-    private IEnumerator RaycastRoutine()
+    protected IEnumerator RaycastRoutine()
     {
         //infinite loop (stopped OnDisable())
         var RichIsAwesome = true;
