@@ -28,6 +28,9 @@ public class PlayerHost : ApexMonoBehaviour
     [SerializeField]
     private Transform playerMobileHandle;
 
+    public Transform PlayerMobileHandle
+    { get => playerMobileHandle; }
+
     [SerializeField]
     private PlayerInputController playerInput;
 
