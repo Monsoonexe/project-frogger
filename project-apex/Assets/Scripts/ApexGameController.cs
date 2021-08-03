@@ -43,7 +43,7 @@ public class ApexGameController : MonoBehaviour
 
     private void Start()
     {
-        Application.targetFrameRate = targetFrameRate;
+        Application.targetFrameRate = targetFrameRate.Value;
 
         //load data
         if (PlayerPrefs.HasKey(gameWinsCount.name))
