@@ -17,9 +17,17 @@ namespace RichPackage.Editor
         public static void LoadSkunkworks()
             => LoadScene("Assets/Scenes/Dev Scene.unity");
 
+        [MenuItem("Scenes/Levels/Main Menu")]
+        public static void LoadLevel_MainMenu()
+            => LoadScene("Assets/Scenes/Game Scenes/Main Menu.unity");
+
         [MenuItem("Scenes/Levels/1")]
         public static void LoadLevel_1()
-            => LoadScene("Assets/Scenes/Game Scenes/XXXX.unity");
+            => LoadScene("Assets/Scenes/Game Scenes/Level 1.unity");
+
+        [MenuItem("Scenes/Levels/2")]
+        public static void LoadLevel_2()
+            => LoadScene("Assets/Scenes/Game Scenes/Level 2.unity");
 
         #endregion
 
