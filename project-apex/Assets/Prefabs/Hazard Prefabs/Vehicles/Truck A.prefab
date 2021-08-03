@@ -407,8 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: I'm a truck! Honk!
-  moveSpeed: 10
-  onSpawnClip: {fileID: 0}
+  moveSpeed: 9
 --- !u!1 &8922243769739258398
 GameObject:
   m_ObjectHideFlags: 0
