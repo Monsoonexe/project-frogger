@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -8,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class LevelController : ApexMonoBehaviour
 {
     [Header("---Settings---")]
-    [SerializeField]
-    private int nextLevelIndex = 1;
+    //[SerializeField]
+    //private int nextLevelIndex = 1;
 
     [SerializeField]
     private float transitionDelay = 1;
@@ -34,14 +33,24 @@ public class LevelController : ApexMonoBehaviour
             transitionDelay);
     }
 
+    private int GetNextLevelIndex()
+    {
+        var index = SceneManager.GetActiveScene().buildIndex + 1;
+
+        //restart if at the last level
+        if (index >= SceneManager.sceneCountInBuildSettings)
+            index = 0; //restart
+        return index;
+    }
+
     [ContextMenu("LoadNextLevel()")]
     public void LoadNextLevel()
-        => LoadLevel(nextLevelIndex);
+        => LoadLevel(GetNextLevelIndex());
 
     [ContextMenu("LoadNextLevelImmediately()")]
     public void LoadNextLevelImmediately()
     {
-        SceneManager.LoadScene(nextLevelIndex);
+        SceneManager.LoadScene(GetNextLevelIndex());
     }
 
     public void LoadFirstLevel() => LoadLevel(1);
