@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[SelectionBase]
 public class Patroler : ApexMonoBehaviour
 {
     [Header("---Settings---")]
