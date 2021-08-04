@@ -8,7 +8,6 @@ public static class ApexTweens
     /// Holds the coroutines that back tweens so disabling components won't kill animation.
     /// </summary>
     private static TweenHolder tweenHolder;
-    public static bool IsInitialized { get; private set; }
 
     /// <summary>
     /// Helps to prevent items looking like not moving.
@@ -48,11 +47,8 @@ public static class ApexTweens
 
     public static void Init()
     {
-        if (IsInitialized) return;
-
         var tweenObj = new GameObject("Apex Tween Utility");
         tweenHolder = tweenObj.AddComponent<TweenHolder>();
-        UnityEngine.Object.DontDestroyOnLoad(tweenObj);
     }
 
     /// <summary>
