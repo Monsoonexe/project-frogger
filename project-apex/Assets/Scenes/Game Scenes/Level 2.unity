@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
+  snapPlayerToCenter: 0
   platformTransform: {fileID: 3798877}
 --- !u!65 &3798881
 BoxCollider:
@@ -469,6 +470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
+  snapPlayerToCenter: 1
   platformTransform: {fileID: 207595205}
 --- !u!1 &349595130 stripped
 GameObject:
@@ -495,6 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
+  snapPlayerToCenter: 0
   platformTransform: {fileID: 349595131}
 --- !u!1 &419352862
 GameObject:
@@ -633,6 +636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
+  snapPlayerToCenter: 0
   platformTransform: {fileID: 447590328}
 --- !u!4 &498996984 stripped
 Transform:
@@ -819,6 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
+  snapPlayerToCenter: 0
   platformTransform: {fileID: 578680328}
 --- !u!1 &609474104
 GameObject:
@@ -1244,6 +1249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
+  snapPlayerToCenter: 0
   platformTransform: {fileID: 779410793}
 --- !u!1 &815492510
 GameObject:
@@ -1350,6 +1356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
+  snapPlayerToCenter: 0
   platformTransform: {fileID: 815492511}
 --- !u!1001 &903726125
 PrefabInstance:
@@ -1472,6 +1479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
+  snapPlayerToCenter: 0
   platformTransform: {fileID: 927045956}
 --- !u!65 &927045958
 BoxCollider:
@@ -2112,6 +2120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
+  snapPlayerToCenter: 0
   platformTransform: {fileID: 1584262034}
 --- !u!1 &1762127948
 GameObject:
@@ -2160,6 +2169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
+  snapPlayerToCenter: 0
   platformTransform: {fileID: 1762127949}
 --- !u!65 &1762127951
 BoxCollider:
@@ -2725,6 +2735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
+  snapPlayerToCenter: 0
   platformTransform: {fileID: 2103199722}
 --- !u!1001 &2147473721
 PrefabInstance:
@@ -2801,12 +2812,12 @@ PrefabInstance:
     - target: {fileID: 8134619455034177916, guid: fd73accebd7920b4ab5bc2244c7567e4,
         type: 3}
       propertyPath: randomTimeIntervalBounds.x
-      value: 1.1
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 8134619455034177916, guid: fd73accebd7920b4ab5bc2244c7567e4,
         type: 3}
       propertyPath: randomTimeIntervalBounds.y
-      value: 4
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: 8134619455034177916, guid: fd73accebd7920b4ab5bc2244c7567e4,
         type: 3}
@@ -2822,12 +2833,12 @@ PrefabInstance:
     - target: {fileID: 8134619455034177917, guid: fd73accebd7920b4ab5bc2244c7567e4,
         type: 3}
       propertyPath: maxAmount
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8134619455034177917, guid: fd73accebd7920b4ab5bc2244c7567e4,
         type: 3}
       propertyPath: startingAmount
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8134619454810595026, guid: fd73accebd7920b4ab5bc2244c7567e4,
         type: 3}
@@ -3663,12 +3674,12 @@ PrefabInstance:
     - target: {fileID: 8134619455034177916, guid: fd73accebd7920b4ab5bc2244c7567e4,
         type: 3}
       propertyPath: randomTimeIntervalBounds.x
-      value: 1.1
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 8134619455034177916, guid: fd73accebd7920b4ab5bc2244c7567e4,
         type: 3}
       propertyPath: randomTimeIntervalBounds.y
-      value: 4
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: 8134619455034177916, guid: fd73accebd7920b4ab5bc2244c7567e4,
         type: 3}
@@ -3684,12 +3695,12 @@ PrefabInstance:
     - target: {fileID: 8134619455034177917, guid: fd73accebd7920b4ab5bc2244c7567e4,
         type: 3}
       propertyPath: maxAmount
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8134619455034177917, guid: fd73accebd7920b4ab5bc2244c7567e4,
         type: 3}
       propertyPath: startingAmount
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8134619454810595026, guid: fd73accebd7920b4ab5bc2244c7567e4,
         type: 3}
