@@ -69,9 +69,13 @@ public class ApexGameController : MonoBehaviour
         FixedDeltaTime = UnityEngine.Time.fixedDeltaTime;
     }
 
-    private void QuitGame()
+    private void OnApplicationQuit()
     {
         PlayerPrefs.SetInt(gameWinsCount.name, gameWinsCount.Value);
+    }
+
+    private void QuitGame()
+    {
         Application.Quit();
     }
 
