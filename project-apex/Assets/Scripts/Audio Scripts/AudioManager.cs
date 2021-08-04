@@ -28,7 +28,9 @@ public class AudioManager : MonoBehaviour
         for (var i = 0; i < len; ++i)
             if (!sources[i].isPlaying)
             {
-                sources[i].PlayOneShot(clip);
+                var source = sources[i];
+                source.clip = clip;
+                source.Play();
                 //Debug.Log("playing from source: " + i);
                 break;
             }
