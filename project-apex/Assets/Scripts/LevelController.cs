@@ -34,9 +34,11 @@ public class LevelController : ApexMonoBehaviour
             transitionDelay);
     }
 
+    [ContextMenu("LoadNextLevel()")]
     public void LoadNextLevel()
         => LoadLevel(nextLevelIndex);
 
+    [ContextMenu("LoadNextLevelImmediately()")]
     public void LoadNextLevelImmediately()
     {
         SceneManager.LoadScene(nextLevelIndex);
