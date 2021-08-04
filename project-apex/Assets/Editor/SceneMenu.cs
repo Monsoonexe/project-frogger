@@ -29,6 +29,10 @@ namespace RichPackage.Editor
         public static void LoadLevel_2()
             => LoadScene("Assets/Scenes/Game Scenes/Level 2.unity");
 
+        [MenuItem("Scenes/Levels/3")]
+        public static void LoadLevel_3()
+            => LoadScene("Assets/Scenes/Game Scenes/Level 3.unity");
+
         #endregion
 
         #region Internal Functions
