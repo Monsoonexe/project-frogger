@@ -22,7 +22,8 @@ public class SpawnOnTimer : ASpawner
 
     protected override void Reset()
     {
-        SetDevDescription("I spawn items from a pool at time intervals.");
+        SetDevDescription("I spawn items from a pool at " +
+            "time intervals.");
     }
 
     public override void Init()
