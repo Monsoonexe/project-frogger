@@ -48,10 +48,15 @@ public class SpawnOnTimer : ASpawner
         var newSpawn = objectPool.Depool(
             spawnPoint.position, spawnPoint.rotation);
 
+        void EnpoolAfterLifetime()
+        {
+            objectPool.Enpool(newSpawn);
+        }
+
         //reclaim after some time (unless immortal)
         if (newSpawn != null && hazardLifetime > 0)
             ApexTweens.InvokeAfterDelay(
-                () => objectPool.Enpool(newSpawn), hazardLifetime);
+                EnpoolAfterLifetime, hazardLifetime);
     }
 
 }
