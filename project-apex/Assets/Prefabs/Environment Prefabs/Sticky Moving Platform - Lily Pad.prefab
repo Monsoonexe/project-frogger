@@ -152,4 +152,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: Please enter a description or a note.
+  snapPlayerToCenter: 1
   platformTransform: {fileID: 2186149055449691229}
