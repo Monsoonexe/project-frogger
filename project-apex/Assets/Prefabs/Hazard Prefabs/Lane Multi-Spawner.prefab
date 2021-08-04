@@ -161,7 +161,7 @@ MonoBehaviour:
     randomTimeIntervalBounds: {x: 3, y: 4}
     spawnPoint: {fileID: 6320193039169140555}
     objectPool: {fileID: 7283687090778716345}
-  - hazardLifetime: 30
+  - hazardLifetime: 60
     randomTimeIntervalBounds: {x: 3, y: 4}
     spawnPoint: {fileID: 6320193039169140555}
     objectPool: {fileID: 1647512137027553307}
@@ -268,8 +268,8 @@ MonoBehaviour:
     type: 3}
   initOnAwake: 1
   initStragety: 0
-  startingAmount: 2
-  maxAmount: 2
+  startingAmount: 1
+  maxAmount: 1
   poolParent: {fileID: 8468303631059652699}
 --- !u!1 &4712546712129261845
 GameObject:

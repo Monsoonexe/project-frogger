@@ -26,6 +26,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sticky Moving Platform - Log Long
       objectReference: {fileID: 0}
+    - target: {fileID: 8708723585176588763, guid: eb0843e8c41daba409dcc390540f9180,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e680ebfb31f2534d970b33632c8efef, type: 2}
     - target: {fileID: 8708723585176588765, guid: eb0843e8c41daba409dcc390540f9180,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -91,11 +96,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1.94
       objectReference: {fileID: 0}
-    - target: {fileID: 8708723585176588763, guid: eb0843e8c41daba409dcc390540f9180,
+    - target: {fileID: 8708723585176588765, guid: eb0843e8c41daba409dcc390540f9180,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 592284701dc3cc644a91a3328d8de07e, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.01
+      objectReference: {fileID: 0}
     - target: {fileID: 48663471293596682, guid: eb0843e8c41daba409dcc390540f9180,
         type: 3}
       propertyPath: m_LocalScale.x

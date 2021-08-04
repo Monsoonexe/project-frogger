@@ -14,9 +14,12 @@ public class LevelGoal : ApexMonoBehaviour
     [SerializeField]
     private LevelController levelController;
 
-    [Header("---Audio---")]
+    [Header("---Resources---")]
     [SerializeField]
     private AudioClip reachGoalClip;
+
+    [SerializeField]
+    private ScriptableGameEvent onLevelComplete;
 
     //runtime values
     private Coroutine winRoutine;
@@ -45,6 +48,7 @@ public class LevelGoal : ApexMonoBehaviour
         //TODO - celebrate!
         //sound
         reachGoalClip.Play();
+        onLevelComplete.Raise();
 
         //particle
         //UI message

@@ -14283,6 +14283,7 @@ MonoBehaviour:
   celebrationTimeInterval: 5
   levelController: {fileID: 0}
   reachGoalClip: {fileID: 8300000, guid: e3839f575739e1643857be1dde591bcd, type: 3}
+  onLevelComplete: {fileID: 11400000, guid: 4b47fd1fbeb13144f8457d7db30148c8, type: 2}
 --- !u!1001 &4189946740260306424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14365,6 +14366,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4.6527
       objectReference: {fileID: 0}
+    - target: {fileID: 8680541904956599840, guid: c095671fa3ebb92458812de40b6ab1ec,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 8680541904956599841, guid: c095671fa3ebb92458812de40b6ab1ec,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8680541904956599847, guid: c095671fa3ebb92458812de40b6ab1ec,
         type: 3}
       propertyPath: enterEvent.m_PersistentCalls.m_Calls.Array.size
@@ -14444,16 +14455,6 @@ PrefabInstance:
         type: 3}
       propertyPath: enterEvent.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8680541904956599840, guid: c095671fa3ebb92458812de40b6ab1ec,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-    - target: {fileID: 8680541904956599841, guid: c095671fa3ebb92458812de40b6ab1ec,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8680541904956599842, guid: c095671fa3ebb92458812de40b6ab1ec, type: 3}

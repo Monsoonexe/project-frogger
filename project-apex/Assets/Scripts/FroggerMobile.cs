@@ -40,7 +40,7 @@ public class FroggerMobile : ApexMobile
     private Transform playerModelHandle;
 
     [SerializeField]
-    private RaycastDetector groundHazardDetector;
+    private RaycastDetector tileRaycaster;
 
     //[SerializeField]
     //private Gravity gravityBehaviour;
@@ -52,7 +52,7 @@ public class FroggerMobile : ApexMobile
     {
         SetDevDescription("The bit that actually moves around the world.");
         //gravityBehaviour = GetComponentInChildren<Gravity>();
-        groundHazardDetector = GetComponentInChildren<RaycastDetector>();
+        tileRaycaster = GetComponentInChildren<RaycastDetector>();
     }
 
     public bool IsMoving { get => moveTween != null; }
@@ -80,7 +80,7 @@ public class FroggerMobile : ApexMobile
         void OnMoveComplete()
         {
             moveTween = null; //flag not in use
-            groundHazardDetector.HandleRayDetection(); //this class handles what to do on hit
+            tileRaycaster.HandleRayDetection(); //this class handles what to do on hit
             //gravityBehaviour.enabled = true;
         }
 

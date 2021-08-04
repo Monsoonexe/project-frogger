@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// Controls the happenings for a particular level.
 /// </summary>
+/// <seealso cref="LevelGoal"/>
 public class LevelController : ApexMonoBehaviour
 {
     [Header("---Settings---")]
@@ -17,6 +18,9 @@ public class LevelController : ApexMonoBehaviour
     [SerializeField]
     private IntVariable levelTracker;
 
+    [SerializeField]
+    private ScriptableGameEvent onSceneTransitionBegin;
+
     private void Start()
     {
         levelTracker.Value = SceneManager.GetActiveScene().buildIndex;
@@ -24,6 +28,9 @@ public class LevelController : ApexMonoBehaviour
 
     public void LoadLevel(int buildIndex)
     {
+        onSceneTransitionBegin.Raise();
+
+        //TODO - update to use game events instead of static Action.
         ScreenTransitionUI.TriggerRandomTransitionEvent(
             ScreenTransitionUI.ETransitionType.OUT);
 

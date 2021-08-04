@@ -5077,7 +5077,7 @@ MonoBehaviour:
   moveAnimTime: 0.28
   moveAudioClip: {fileID: 8300000, guid: e1f5226b7e0bd014db1f4456e1f63f1d, type: 3}
   playerModelHandle: {fileID: 5217025705745117940}
-  groundHazardDetector: {fileID: 6263096505260376094}
+  tileRaycaster: {fileID: 6263096505260376094}
 --- !u!114 &4040719991895503141
 MonoBehaviour:
   m_ObjectHideFlags: 0
