@@ -60,7 +60,8 @@ public static class ApexTweens
         => tweenHolder.StartCoroutine(InvokeAfterDelayRoutine(
             callback, delay));
 
-    private static IEnumerator InvokeAfterDelayRoutine(Action callback, float delay)
+    private static IEnumerator InvokeAfterDelayRoutine(
+        Action callback, float delay)
     {
         var callTime = ApexGameController.Time + delay;
 
