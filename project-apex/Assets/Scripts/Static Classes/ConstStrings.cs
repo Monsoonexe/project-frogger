@@ -25,7 +25,7 @@ public static class ConstStrings
         string outStr = string.Empty;
 
         //hooray collision-free hashing function! (plain-old array access).
-        if (val < 0 || val > CACHED_INT_COUNT)
+        if (val >= 0 && val <= CACHED_INT_COUNT)
             outStr = cachedIntStrings[val]; //string was already gen'd
         else
             outStr = val.ToString(); //can't cache 'em all
