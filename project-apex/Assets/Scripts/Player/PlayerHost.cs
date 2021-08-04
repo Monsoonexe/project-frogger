@@ -102,7 +102,7 @@ public class PlayerHost : ApexMonoBehaviour
         if (IsDead) return;
 
         //prevent respawning still moving with platform
-        ATile.CurrentTile = null; //ugly, but it has to be done.
+        ATile.CurrentTile.OnExitTile();
 
         IsDead = true;
 
