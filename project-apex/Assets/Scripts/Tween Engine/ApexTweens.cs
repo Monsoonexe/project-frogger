@@ -19,7 +19,7 @@ public static class ApexTweens
         this Transform transform, Vector3 targetPoint,
         float duration, Action onComplete = null)
     {
-        var startTime = ApexGameController.UpTime;
+        var startTime = ApexGameController.Time;
         var endTime = startTime + duration;
         var runtime = 0.0f;
 
@@ -66,10 +66,10 @@ public static class ApexTweens
 
     private static IEnumerator InvokeAfterDelayRoutine(Action callback, float delay)
     {
-        var callTime = ApexGameController.UpTime + delay;
+        var callTime = ApexGameController.Time + delay;
 
         do yield return null;
-        while (ApexGameController.UpTime < callTime);
+        while (ApexGameController.Time < callTime);
 
         callback();
     }
