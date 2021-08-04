@@ -21,17 +21,17 @@ namespace RichPackage.Editor
         public static void LoadLevel_MainMenu()
             => LoadScene("Assets/Scenes/Game Scenes/Main Menu.unity");
 
-        [MenuItem("Scenes/Levels/1")]
-        public static void LoadLevel_1()
-            => LoadScene("Assets/Scenes/Game Scenes/Level 1.unity");
+        [MenuItem("Scenes/Levels/A")]
+        public static void LoadLevel_A()
+            => LoadScene("Assets/Scenes/Game Scenes/Level A.unity");
 
-        [MenuItem("Scenes/Levels/2")]
-        public static void LoadLevel_2()
-            => LoadScene("Assets/Scenes/Game Scenes/Level 2.unity");
+        [MenuItem("Scenes/Levels/B")]
+        public static void LoadLevel_B()
+            => LoadScene("Assets/Scenes/Game Scenes/Level B.unity");
 
-        [MenuItem("Scenes/Levels/3")]
-        public static void LoadLevel_3()
-            => LoadScene("Assets/Scenes/Game Scenes/Level 3.unity");
+        [MenuItem("Scenes/Levels/C")]
+        public static void LoadLevel_C()
+            => LoadScene("Assets/Scenes/Game Scenes/Level C.unity");
 
         #endregion
 

@@ -38,6 +38,6 @@ sysinfo.txt
 *.apk
 *.unitypackage
 project-apex/Assets/Plugins.meta
-project-apex/Assets/Scenes/Game Scenes/Level 1/
-project-apex/Assets/Scenes/Game Scenes/Level 2/
-project-apex/Assets/Scenes/Game Scenes/Level 3/
+project-apex/Assets/Scenes/Game Scenes/Level A/
+project-apex/Assets/Scenes/Game Scenes/Level B/
+project-apex/Assets/Scenes/Game Scenes/Level C/
