@@ -20,5 +20,6 @@ public class ProjectileHazard : ApexMobile
             * (moveSpeed * ApexGameController.DeltaTime);
 
         myTransform.position += moveStep;
+        //local position made some objects move the opposite direction.
     }
 }
