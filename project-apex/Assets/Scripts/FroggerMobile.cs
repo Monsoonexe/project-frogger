@@ -99,13 +99,13 @@ public class FroggerMobile : ApexMobile
     }
 
     /// <summary>
-    /// Returns true if x is in inverval [min, max].
+    /// Returns true if x is on inverval [min, max].
     /// </summary>
     public static bool IsWithin(int x, int min, int max)
         => (x >= min && x <= max);
 
     /// <summary>
-    /// Returns true if x is in inverval [min, max].
+    /// Returns true if x is on inverval [min, max].
     /// </summary>
     public static bool IsWithin(float x, float min, float max)
         => (x >= min && x <= max);
