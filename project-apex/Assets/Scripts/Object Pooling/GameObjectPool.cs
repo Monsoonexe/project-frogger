@@ -4,7 +4,7 @@ using UnityEngine;
 //I admit that I imported this script from an existing package that I own and maintain.
 //pooling is too important and re-writing this would be a pain, and I know this works (cuz I wrote it).
 
-public delegate void InitPooledGameObjectMethod(GameObject poolable);
+public delegate void GameObjectMethod(GameObject poolable);
 //TODO: Reclaim when empty strategy. Like bullet holes in FPS games.
 //TODO: ability to pre-spawn items in the Editor.
 
@@ -52,7 +52,7 @@ public class GameObjectPool : ApexMonoBehaviour
     /// <summary>
     /// [Optional] Something special to be performed on new entries.
     /// </summary>
-    public InitPooledGameObjectMethod InitPoolableMethod = (p) => p = null;//no-op so never null
+    public GameObjectMethod InitPoolableMethod = (p) => p = null;//no-op so never null
 
     //runtime data
     private Stack<GameObject> pool; //stack has better locality than queue
@@ -97,10 +97,10 @@ public class GameObjectPool : ApexMonoBehaviour
         GameObject newGameObject = null;//return value
         if (maxAmount >= 0 && PopulationCount >= maxAmount)
         {
-            Debug.Log("[" + name + "] Pool is exhausted. "
-                + "Count: " + ConstStrings.GetCachedString(maxAmount)
-                + ". Consider increasing 'maxAmount' or setting 'createWhenEmpty'."
-                , this);
+            //Debug.Log("[" + name + "] Pool is exhausted. "
+            //    + "Count: " + ConstStrings.GetCachedString(maxAmount)
+            //    + ". Consider increasing 'maxAmount' or setting 'createWhenEmpty'."
+            //    , this);
         }
         else
         {
