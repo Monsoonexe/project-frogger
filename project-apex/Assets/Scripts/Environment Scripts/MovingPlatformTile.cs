@@ -1,7 +1,14 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// More like "sticky" platform.
+/// </summary>
 public class MovingPlatformTile : ATile
 {
+    [Header("---Settings---")]
+    [SerializeField]
+    private bool snapPlayerToCenter = false;
+
     [Header("---Prefab Refs---")]
     [SerializeField]
     private Transform platformTransform;
@@ -21,7 +28,15 @@ public class MovingPlatformTile : ATile
         var playerHandle = PlayerHost.Instance.PlayerMobileHandle;
         cachedParent = playerHandle.parent;
 
-        playerHandle.SetParent(platformTransform);        
+        playerHandle.SetParent(platformTransform);
+
+        //handle snapping player
+        if (snapPlayerToCenter)
+        {
+            var anchorPoint = Vector3.zero
+                .WithY(playerHandle.localPosition.y);
+            playerHandle.localPosition = anchorPoint;
+        }
     }
 
     public override void OnExitTile()
