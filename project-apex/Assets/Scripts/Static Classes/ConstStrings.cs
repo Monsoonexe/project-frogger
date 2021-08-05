@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-/// <summary>
+﻿/// <summary>
 /// Pregenerates common integer strings to avoid garbge generation.
 /// </summary>
 public static class ConstStrings
