@@ -9,6 +9,9 @@ public class MovingPlatformTile : ATile
     [SerializeField]
     private bool snapPlayerToCenter = false;
 
+    [Tooltip("If snapping, how fast?")]
+    public float snapSpeed = 1.0f;
+
     [Header("---Prefab Refs---")]
     [SerializeField]
     private Transform platformTransform;
@@ -22,6 +25,27 @@ public class MovingPlatformTile : ATile
         platformTransform = GetComponent<Transform>();
     }
 
+    private void Update()
+    {
+        if(CurrentTile == this && snapPlayerToCenter)
+        {
+            if (snapPlayerToCenter)
+            {
+                var playerHandle = PlayerHost.Instance.PlayerMobileHandle;
+                var localPosition = playerHandle.localPosition;
+
+                //move to center but preserve height
+                var anchorPoint = Vector3.zero
+                    .WithY(localPosition.y);
+
+                var moveStep = Vector3.MoveTowards(
+                    localPosition, anchorPoint,
+                    ApexGameController.DeltaTime * snapSpeed);
+                playerHandle.localPosition = moveStep;
+            }
+        }
+    }
+
     public override void OnEnterTile()
     {
         base.OnEnterTile();
@@ -31,12 +55,12 @@ public class MovingPlatformTile : ATile
         playerHandle.SetParent(platformTransform);
 
         //handle snapping player
-        if (snapPlayerToCenter)
-        {
-            var anchorPoint = Vector3.zero
-                .WithY(playerHandle.localPosition.y);
-            playerHandle.localPosition = anchorPoint;
-        }
+        //if (snapPlayerToCenter)
+        //{
+        //    var anchorPoint = Vector3.zero
+        //        .WithY(playerHandle.localPosition.y);
+        //    playerHandle.localPosition = anchorPoint;
+        //}
     }
 
     public override void OnExitTile()
