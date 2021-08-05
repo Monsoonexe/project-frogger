@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: Please enter a description or a note.
-  moveSpeed: 9
+  moveSpeed: 7
   mobileHandle: {fileID: 1260087100}
   points:
   - {fileID: 112001361}
@@ -1003,7 +1003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: Please enter a description or a note.
-  moveSpeed: 12
+  moveSpeed: 11
   mobileHandle: {fileID: 187885091}
   points:
   - {fileID: 2132371870}
@@ -3819,7 +3819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: Please enter a description or a note.
-  moveSpeed: 12
+  moveSpeed: 10
   mobileHandle: {fileID: 936744734}
   points:
   - {fileID: 1372265982}
@@ -4785,7 +4785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: Please enter a description or a note.
-  moveSpeed: 12
+  moveSpeed: 10
   mobileHandle: {fileID: 1498603110}
   points:
   - {fileID: 1456931929}
