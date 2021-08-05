@@ -3,6 +3,7 @@ project-apex/[Tt]emp/
 project-apex/[Oo]bj/
 project-apex/[Bb]uild/
 project-apex/[Bb]uilds/
+project-apex/[Ss]creen[Ss]hots/
 project-apex/Assets/AssetStoreTools*
 project-apex/Assets/Plugins/
 project-apex/Assets/ThirdParty/
@@ -26,6 +27,8 @@ ExportedObj/
 *.pdb
 *.opendb
 *.VC.db
+
+*.zip
 
 # Unity3D generated meta files
 *.pidb.meta
