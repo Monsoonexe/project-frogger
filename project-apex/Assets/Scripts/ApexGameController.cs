@@ -11,6 +11,8 @@ public class ApexGameController : MonoBehaviour
     [SerializeField]
     private IntVariable targetFrameRate;
 
+    public bool clearSaveFileOnAwake = true;
+
     [Header("---Inputs---")]
     [SerializeField]
     private StringVariable quitButtonName;
@@ -39,6 +41,9 @@ public class ApexGameController : MonoBehaviour
         //initialize systems.
         ApexTweens.Init();
         AudioManager.Init();
+
+        if (clearSaveFileOnAwake)
+            ClearSaveFile();
 
         gameWinsCount.onValueChanged += SaveComplettions;
     }
