@@ -328,7 +328,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 168100274}
 --- !u!65 &168100276
 BoxCollider:
@@ -563,7 +562,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 207595205}
 --- !u!1 &296065606
 GameObject:
@@ -665,7 +663,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 312848274}
 --- !u!65 &312848276
 BoxCollider:
@@ -773,7 +770,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 343351784}
 --- !u!65 &343351786
 BoxCollider:
@@ -859,7 +855,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 0
-  snapSpeed: 1
   platformTransform: {fileID: 349595131}
 --- !u!1 &352874496
 GameObject:
@@ -961,7 +956,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 368518626}
 --- !u!65 &368518628
 BoxCollider:
@@ -1337,7 +1331,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 610618339}
 --- !u!65 &610618341
 BoxCollider:
@@ -1542,7 +1535,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 648865724}
 --- !u!65 &648865726
 BoxCollider:
@@ -1732,7 +1724,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 0
-  snapSpeed: 1
   platformTransform: {fileID: 737900137}
 --- !u!65 &737900139
 BoxCollider:
@@ -1840,7 +1831,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 743718214}
 --- !u!65 &743718216
 BoxCollider:
@@ -1948,7 +1938,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 752352087}
 --- !u!65 &752352089
 BoxCollider:
@@ -2130,7 +2119,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 888228747}
 --- !u!65 &888228749
 BoxCollider:
@@ -2312,7 +2300,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 1037359838}
 --- !u!65 &1037359840
 BoxCollider:
@@ -2420,7 +2407,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 0
-  snapSpeed: 1
   platformTransform: {fileID: 1113375964}
 --- !u!65 &1113375966
 BoxCollider:
@@ -2870,7 +2856,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 0
-  snapSpeed: 1
   platformTransform: {fileID: 1253249102}
 --- !u!65 &1253249104
 BoxCollider:
@@ -2984,7 +2969,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 1255140199}
 --- !u!65 &1255140201
 BoxCollider:
@@ -3098,7 +3082,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 1289047369}
 --- !u!65 &1289047371
 BoxCollider:
@@ -3206,7 +3189,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 1334320901}
 --- !u!65 &1334320903
 BoxCollider:
@@ -3326,7 +3308,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 1403490039}
 --- !u!65 &1403490041
 BoxCollider:
@@ -3434,7 +3415,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 1416902599}
 --- !u!65 &1416902601
 BoxCollider:
@@ -3685,7 +3665,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 1525290030}
 --- !u!65 &1525290032
 BoxCollider:
@@ -3956,7 +3935,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 0
-  snapSpeed: 1
   platformTransform: {fileID: 1584262034}
 --- !u!1 &1654090134
 GameObject:
@@ -4036,7 +4014,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 1674532037}
 --- !u!65 &1674532039
 BoxCollider:
@@ -4179,7 +4156,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 0
-  snapSpeed: 1
   platformTransform: {fileID: 1817546533}
 --- !u!65 &1817546535
 BoxCollider:
@@ -4598,7 +4574,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 1936558692}
 --- !u!65 &1936558694
 BoxCollider:
@@ -4670,6 +4645,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sticky Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 8708723585176588763, guid: eb0843e8c41daba409dcc390540f9180,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 592284701dc3cc644a91a3328d8de07e, type: 2}
     - target: {fileID: 8708723585176588765, guid: eb0843e8c41daba409dcc390540f9180,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4730,11 +4710,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 5.2507043
       objectReference: {fileID: 0}
-    - target: {fileID: 8708723585176588763, guid: eb0843e8c41daba409dcc390540f9180,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 592284701dc3cc644a91a3328d8de07e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb0843e8c41daba409dcc390540f9180, type: 3}
 --- !u!4 &1939353486 stripped
@@ -4791,7 +4766,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   developerDescription: The Player will stick to me while touching it.
   snapPlayerToCenter: 1
-  snapSpeed: 1
   platformTransform: {fileID: 2003284225}
 --- !u!65 &2003284227
 BoxCollider:
@@ -5564,11 +5538,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.67600006
       objectReference: {fileID: 0}
-    - target: {fileID: 7288907951746130033, guid: 2d6c4a4a9fb1b624787c2ea79c696f06,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3160943817978562454, guid: 2d6c4a4a9fb1b624787c2ea79c696f06,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -5618,6 +5587,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Way to go!
+      objectReference: {fileID: 0}
+    - target: {fileID: 472285631330271190, guid: 2d6c4a4a9fb1b624787c2ea79c696f06,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 48.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368147299597354182, guid: 2d6c4a4a9fb1b624787c2ea79c696f06,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 37.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d6c4a4a9fb1b624787c2ea79c696f06, type: 3}
