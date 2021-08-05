@@ -168,7 +168,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -227,6 +227,8 @@ MonoBehaviour:
   developerDescription: Skip main menu until implemented.
   transitionDelay: 1
   levelTracker: {fileID: 11400000, guid: 4b935064d8a565748abaf4f008a97607, type: 2}
+  onRequestLoadFirstLevel: {fileID: 11400000, guid: 6a6995d166e44b64fa041f1f45e6673e,
+    type: 2}
 --- !u!4 &1590022500
 Transform:
   m_ObjectHideFlags: 0
