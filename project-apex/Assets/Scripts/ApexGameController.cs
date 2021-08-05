@@ -39,6 +39,13 @@ public class ApexGameController : MonoBehaviour
         //initialize systems.
         ApexTweens.Init();
         AudioManager.Init();
+
+        gameWinsCount.onValueChanged += SaveComplettions;
+    }
+
+    private void OnDestroy()
+    {
+        gameWinsCount.onValueChanged -= SaveComplettions;
     }
 
     private void Start()
@@ -71,7 +78,7 @@ public class ApexGameController : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        PlayerPrefs.SetInt(gameWinsCount.name, gameWinsCount.Value);
+        SaveComplettions();
     }
 
     private void QuitGame()
@@ -82,6 +89,11 @@ public class ApexGameController : MonoBehaviour
     private void ResetGame()
     {
         SceneManager.LoadScene(0);
+    }
+
+    private void SaveComplettions()
+    {
+        PlayerPrefs.SetInt(gameWinsCount.name, gameWinsCount.Value);
     }
 
     [ContextMenu("Delete PlayerPrefs Keys")]
