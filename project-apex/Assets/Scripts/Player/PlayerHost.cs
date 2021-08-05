@@ -53,7 +53,7 @@ public class PlayerHost : ApexMonoBehaviour
 
     [Header("---Game Events---")]
     [SerializeField]
-    private ScriptableGameEvent loadFirstLevelEvent;
+    private GameEvent loadFirstLevelEvent;
 
     //runtime data
     public bool IsDead { get; private set; }

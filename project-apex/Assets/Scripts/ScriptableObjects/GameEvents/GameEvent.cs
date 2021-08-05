@@ -5,7 +5,7 @@ using UnityEngine.Events;
 [CreateAssetMenu(
     fileName = "_GameEvent",
     menuName = "ScriptableObjects/Game Event")]
-public class ScriptableGameEvent : ApexScriptableObject
+public class GameEvent : ApexScriptableObject
 {
     public readonly UnityEvent Event = new UnityEvent();
 

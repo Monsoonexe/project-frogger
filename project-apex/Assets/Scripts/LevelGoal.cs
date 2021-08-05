@@ -19,7 +19,7 @@ public class LevelGoal : ApexMonoBehaviour
     private AudioClip reachGoalClip;
 
     [SerializeField]
-    private ScriptableGameEvent onLevelComplete;
+    private GameEvent onLevelComplete;
 
     //runtime values
     private Coroutine winRoutine;

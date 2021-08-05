@@ -19,7 +19,7 @@ public class LevelController : ApexMonoBehaviour
     private IntVariable levelTracker;
 
     [SerializeField]
-    private ScriptableGameEvent onRequestLoadFirstLevel;
+    private GameEvent onRequestLoadFirstLevel;
 
     private void Start()
     {

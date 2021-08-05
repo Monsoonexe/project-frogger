@@ -5,7 +5,7 @@ public class GameEventListener : ApexMonoBehaviour
 {
     [Header("---Resources---")]
     [SerializeField]
-    private ScriptableGameEvent triggerEvent;
+    private GameEvent triggerEvent;
 
     [SerializeField]
     private UnityEvent response = new UnityEvent();
