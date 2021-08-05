@@ -383,7 +383,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293065802
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -961,27 +961,37 @@ PrefabInstance:
     - target: {fileID: 3359509661518029148, guid: fb2736c83b3600e4784ec71cd6d3e675,
         type: 3}
       propertyPath: m_text
-      value: Congrats! You beat the game!
+      value: "Congrats! \nYou beat the game!"
       objectReference: {fileID: 0}
     - target: {fileID: 3359509661518029148, guid: fb2736c83b3600e4784ec71cd6d3e675,
         type: 3}
       propertyPath: m_fontSize
-      value: 45.3
+      value: 91.25
       objectReference: {fileID: 0}
     - target: {fileID: 3359509661518029148, guid: fb2736c83b3600e4784ec71cd6d3e675,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 28
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 3359509661518029148, guid: fb2736c83b3600e4784ec71cd6d3e675,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3359509661518029148, guid: fb2736c83b3600e4784ec71cd6d3e675,
         type: 3}
       propertyPath: m_textInfo.wordCount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359509661518029148, guid: fb2736c83b3600e4784ec71cd6d3e675,
+        type: 3}
+      propertyPath: m_fontSizeMax
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359509661518029148, guid: fb2736c83b3600e4784ec71cd6d3e675,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7608259308628628454, guid: fb2736c83b3600e4784ec71cd6d3e675,
         type: 3}
@@ -1144,6 +1154,31 @@ PrefabInstance:
       propertyPath: m_text
       value: Great Job!
       objectReference: {fileID: 0}
+    - target: {fileID: 3359509661518029148, guid: fb2736c83b3600e4784ec71cd6d3e675,
+        type: 3}
+      propertyPath: m_fontSizeMax
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359509661518029148, guid: fb2736c83b3600e4784ec71cd6d3e675,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359509661518029148, guid: fb2736c83b3600e4784ec71cd6d3e675,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359509661518029148, guid: fb2736c83b3600e4784ec71cd6d3e675,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359509661518029148, guid: fb2736c83b3600e4784ec71cd6d3e675,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 169.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7608259308628628454, guid: fb2736c83b3600e4784ec71cd6d3e675,
         type: 3}
       propertyPath: m_IsActive
@@ -1258,6 +1293,11 @@ PrefabInstance:
         type: 3}
       propertyPath: developerDescription
       value: I display when the player completes a level.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4895848687712737343, guid: fb2736c83b3600e4784ec71cd6d3e675,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2736c83b3600e4784ec71cd6d3e675, type: 3}
