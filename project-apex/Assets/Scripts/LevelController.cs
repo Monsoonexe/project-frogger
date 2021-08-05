@@ -19,17 +19,26 @@ public class LevelController : ApexMonoBehaviour
     private IntVariable levelTracker;
 
     [SerializeField]
-    private ScriptableGameEvent onSceneTransitionBegin;
+    private ScriptableGameEvent onRequestLoadFirstLevel;
 
     private void Start()
     {
         levelTracker.Value = SceneManager.GetActiveScene().buildIndex;
     }
 
+    private void OnEnable()
+    {
+        onRequestLoadFirstLevel.Event
+            .AddListener(LoadFirstLevel);
+    }
+    private void OnDisable()
+    {
+        onRequestLoadFirstLevel.Event
+            .RemoveListener(LoadFirstLevel);
+    }
+
     public void LoadLevel(int buildIndex)
     {
-        onSceneTransitionBegin.Raise();
-
         //TODO - update to use game events instead of static Action.
         ScreenTransitionUI.TriggerRandomTransitionEvent(
             ScreenTransitionUI.ETransitionType.OUT);
@@ -56,9 +65,7 @@ public class LevelController : ApexMonoBehaviour
 
     [ContextMenu("LoadNextLevelImmediately()")]
     public void LoadNextLevelImmediately()
-    {
-        SceneManager.LoadScene(GetNextLevelIndex());
-    }
+        => SceneManager.LoadScene(GetNextLevelIndex());
 
     public void LoadFirstLevel() => LoadLevel(1);
 

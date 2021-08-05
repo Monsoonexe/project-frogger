@@ -5025,12 +5025,15 @@ MonoBehaviour:
   deathInterval: 2
   deathReflectionInterval: 1
   playerDeathCounter: {fileID: 11400000, guid: f98212257f11beb4d94242ec0d6d08c0, type: 2}
+  ironmanModeEnabled: {fileID: 11400000, guid: a83dba2479c3e524896219929f497e69, type: 2}
   playerMobileHandle: {fileID: 5217025705745117940}
   playerInput: {fileID: 6643546896350378883}
   playerCollider: {fileID: 9020440512778907917}
   playerHitEffect: {fileID: 3414377162532376887}
   respawnPoint: {fileID: 3746706738602093165}
   onPlayerDie: {fileID: 8300000, guid: a10347f1c023fe840aeea5602eb4b635, type: 3}
+  loadFirstLevelEvent: {fileID: 11400000, guid: 6a6995d166e44b64fa041f1f45e6673e,
+    type: 2}
 --- !u!114 &6643546896350378883
 MonoBehaviour:
   m_ObjectHideFlags: 0

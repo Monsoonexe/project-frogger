@@ -24,6 +24,9 @@ public class PlayerHost : ApexMonoBehaviour
     [SerializeField]
     private IntVariable playerDeathCounter;
 
+    [SerializeField]
+    private BoolVariable ironmanModeEnabled;
+
     [Header("---Prefab Refs---")]
     [SerializeField]
     private Transform playerMobileHandle;
@@ -47,6 +50,10 @@ public class PlayerHost : ApexMonoBehaviour
     [Header("---Audio---")]
     [SerializeField]
     private AudioClip onPlayerDie;
+
+    [Header("---Game Events---")]
+    [SerializeField]
+    private ScriptableGameEvent loadFirstLevelEvent;
 
     //runtime data
     public bool IsDead { get; private set; }
@@ -109,10 +116,10 @@ public class PlayerHost : ApexMonoBehaviour
         //TODO screen shake
         playerHitEffect.Play();
 
-        onPlayerDie.Play();
+        onPlayerDie.Play();//audio
 
         //disabled movement and such
-        TogglePlayerEnabled(enabled: false);
+        TogglePlayerEnabled(false);
 
         ++playerDeathCounter.Value;//updates ui value 
 
@@ -124,7 +131,15 @@ public class PlayerHost : ApexMonoBehaviour
             deathReflectionInterval); //wait for a tad to let the loss sink in
 
         //respawn player
-        ApexTweens.InvokeAfterDelay(RespawnPlayer, deathInterval);
+        if(ironmanModeEnabled.Value)
+            ApexTweens.InvokeAfterDelay(RestartAtLevel1, deathInterval);
+        else
+            ApexTweens.InvokeAfterDelay(RespawnPlayer, deathInterval);
+    }
+
+    private void RestartAtLevel1()
+    {
+        loadFirstLevelEvent.Raise();
     }
 
     public void RespawnPlayer()

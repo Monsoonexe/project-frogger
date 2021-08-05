@@ -47,7 +47,7 @@ MonoBehaviour:
   developerDescription: Please enter a description or a note.
   transitionDelay: 1
   levelTracker: {fileID: 11400000, guid: 4b935064d8a565748abaf4f008a97607, type: 2}
-  onSceneTransitionBegin: {fileID: 11400000, guid: 06b99df108dbab045a1f6c0322504ae6,
+  onRequestLoadFirstLevel: {fileID: 11400000, guid: 6a6995d166e44b64fa041f1f45e6673e,
     type: 2}
 --- !u!1 &4292796451530641487
 GameObject:
