@@ -14,6 +14,14 @@ public abstract class AVariable : ApexScriptableObject
     /// </summary>
     public event Action onValueChanged;
 
+    [Header("---Settings---")]
+    [SerializeField]
+    protected bool _isReadonly = false;
+
+    [SerializeField]
+    [Tooltip("Should this Variable start the game at an initial value?")]
+    protected bool _initialize = true;
+
     public virtual void Raise()
         => onValueChanged?.Invoke();
 
@@ -30,13 +38,6 @@ public abstract class AVariable<T> : AVariable
 {
     [SerializeField]
     protected T _value = default;
-
-    [SerializeField]
-    protected bool _isReadonly = false;
-
-    [SerializeField]
-    [Tooltip("Should this Variable start the game at an initial value?")]
-    private bool _initialize = true;
 
     [SerializeField]
     [Tooltip("If this Variable should start the game at an initial value, which value?")]
