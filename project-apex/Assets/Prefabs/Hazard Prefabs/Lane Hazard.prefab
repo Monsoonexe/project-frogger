@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 8134619455034177915}
   - component: {fileID: 8134619455034177916}
   - component: {fileID: 8134619455034177917}
+  - component: {fileID: 8356295837117812934}
   m_Layer: 0
   m_Name: Lane Hazard
   m_TagString: Untagged
@@ -76,9 +77,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   developerDescription: Please enter a description or a note.
+  initOnAwake: 1
   randomTimeIntervalBounds: {x: 0.5, y: 2}
-  shouldOverrideDirection: 1
-  directionOverride: {x: -1, y: 0, z: 0}
   hazardLifetime: 3
   spawnPoint: {fileID: 8134619454810595026}
 --- !u!114 &8134619455034177917
@@ -101,3 +101,26 @@ MonoBehaviour:
   startingAmount: 3
   maxAmount: 3
   poolParent: {fileID: 8134619455034177915}
+--- !u!114 &8356295837117812934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8134619455034177918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb42fbd324e6644497eff63354cfd12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  developerDescription: Counts down and raises an event when timer hits 0. Can loop.
+  startOnAwake: 0
+  loop: 0
+  TimerDuration: 0
+  TimeRemaining: 0
+  timeScale: 1
+  onTimerExpire:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
