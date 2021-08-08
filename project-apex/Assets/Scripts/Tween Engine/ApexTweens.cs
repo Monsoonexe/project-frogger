@@ -23,8 +23,9 @@ public static class ApexTweens
         var runtime = 0.0f;
 
         yield return null; //skip current frame
+        var runDuration = duration * LERP_EASE_BLEND;
 
-        while (runtime < duration * LERP_EASE_BLEND)
+        while (runtime < runDuration)
         {
             yield return null; //wait for next frame.
 
@@ -38,7 +39,8 @@ public static class ApexTweens
         onComplete?.Invoke();
     }
 
-    public static Coroutine Tween_Lerp(this Transform transform, Vector3 targetPoint,
+    public static Coroutine Tween_Lerp(this Transform transform, 
+        Vector3 targetPoint,
         float duration, Action onComplete = null)
     {
         return tweenHolder.StartCoroutine(
@@ -53,18 +55,25 @@ public static class ApexTweens
 
     /// <summary>
     /// Delay the invokation of a method for a certain time.
+    /// Due to the passing of a function (ref type), this causes a GC allocation of about 24 B.
+    /// Quick and dirty. Consider inlining you own implementation.
     /// </summary>
-    /// <param name="callback"></param>
-    /// <param name="delay"></param>
     public static void InvokeAfterDelay(Action callback, float delay)
         => tweenHolder.StartCoroutine(InvokeAfterDelayRoutine(
             callback, delay));
 
-    private static IEnumerator InvokeAfterDelayRoutine(
+    /// <summary>
+    /// Delay the invokation of a method for a certain time.
+    /// Due to the passing of a function (ref type), this causes a GC allocation of about 24 B.
+    /// Quick and dirty. Consider inlining you own implementation.
+    /// </summary>
+    public static IEnumerator InvokeAfterDelayRoutine(
         Action callback, float delay)
     {
         var callTime = ApexGameController.Time + delay;
 
+        //checking every frame has more overhead due to resuming
+        //this function, but will gen less garbage without a new WaitForSeconds();
         do yield return null;
         while (ApexGameController.Time < callTime);
 
