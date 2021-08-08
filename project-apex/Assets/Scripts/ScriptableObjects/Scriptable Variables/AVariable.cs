@@ -37,11 +37,11 @@ public abstract class AVariable : ApexScriptableObject
 public abstract class AVariable<T> : AVariable
 {
     [SerializeField]
-    protected T _value = default;
-
-    [SerializeField]
     [Tooltip("If this Variable should start the game at an initial value, which value?")]
     private T _initialValue = default;
+
+    [SerializeField]
+    protected T _value = default;
 
     /// <summary>
     /// Raised when the value has been updated.
