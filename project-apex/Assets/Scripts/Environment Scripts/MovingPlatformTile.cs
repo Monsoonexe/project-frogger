@@ -3,6 +3,7 @@
 /// <summary>
 /// More like "sticky" platform.
 /// </summary>
+/// <seealso cref="HazardTile"/>
 public class MovingPlatformTile : ATile
 {
     [Header("---Settings---")]
