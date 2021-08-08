@@ -15,5 +15,5 @@ MonoBehaviour:
   developerDescription: 'IronMan mode: when you die, reset to Level 1.'
   _isReadonly: 0
   _initialize: 1
-  _value: 0
-  _initialValue: 0
+  _initialValue: 1
+  _value: 1
